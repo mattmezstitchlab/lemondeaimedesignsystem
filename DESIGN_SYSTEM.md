@@ -5,7 +5,7 @@ Page HTML **indépendante** dans `index.html`, avec `design-system.css`, `design
 
 ## Source & limites
 - La maquette validée est la référence visuelle ; `index 9.html` reste une archive intacte.
-- Direction actuelle : **DM Sans** (corps), **Manrope** (titres), vert profond `#1f3f28`, accent `#a3d65c`, sable `#f6f7f5`, texte `#485563`, bordures `#e5e7eb`, focus `#537d36`. Les boutons utilisent le vert sombre `#192e28`.
+- Direction chromatique actuelle : **DM Sans** (corps), **Manrope** (titres), texte noir `#161616`, description `#62666B`, fond `#FFFFFF` / `#F7F8F8`, bleu pétrole `#164C70`, turquoise `#12B5B4`, vert d’eau `#B0E4D0`. Les boutons principaux restent noirs ; le gradient signature est réservé aux accents.
 - Le symbole floral plein reprend `#i-flower` de l’archive ; le mot-symbole sur deux lignes est reconstruit typographiquement, pas un fichier officiel fourni.
 - Les photographies externes servent uniquement à visualiser les proportions ; aucune licence d'exploitation n'est présumée.
 - Les interactions sont locales : chips, menu mobile, boutons en chargement, formulaire validé, assistant avec erreur simulée et téléchargement d’une fiche fictive.
@@ -66,3 +66,13 @@ Il n’existe pas de suite de tests, build ou linter configurés dans ce dépôt
 - Contrastes : texte 7,62:1, bouton 14,36:1, sélection 8,43:1, erreur 7,19:1, focus 4,82:1.
 - Vidéo WebM locale de démonstration : chargement, lecture sur action utilisateur et pause ; fichier non vidéo rejeté, aucun upload.
 - Limites : polices/photos externes non chargées dans le sandbox ; audit du site et du dépôt bloqué ; Safari/iOS/Android et fonctions métier non vérifiés.
+
+
+## Couleurs & univers — passe chromatique
+- Texte courant : `--ink: #161616` et `--text: #62666b` ; `--text-tertiary: #858a90` pour les légendes non essentielles.
+- Identité commune : `--gradient-signature` (pétrole/turquoise/vert d'eau).
+- Déclinaisons : `--gradient-mariage`, `--gradient-studio`, `--gradient-musique` ; associations exploratoires, pas affectations métier automatiques.
+- Les gradients sont des surfaces ou des accents, jamais un remplacement des messages d'erreur, du focus ou des textes. Conserver le contraste de chaque bouton au cas par cas.
+- Nouvelle démonstration dans `index.html#couleurs-univers` : palette neutre, quatre univers et composants accentués.
+- CSS du laboratoire isolé : **ne pas** importer directement dans Matt Mez Admin (collision possible avec les variables Tailwind/shadcn).
+- Aucune modification du moteur de conversation, de la sauvegarde de brouillons, des documents ni des composants React de Matt Mez Admin.
