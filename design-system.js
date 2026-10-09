@@ -19,6 +19,12 @@ document.querySelectorAll("[data-suggest]").forEach((button) => {
 
 document.querySelector("#demo-form").addEventListener("submit", (event) => {
   event.preventDefault();
+  if (document.querySelector("#chat-error").checked) {
+    status.textContent = "Indisponibilité simulée. Votre texte est conservé : désactivez la simulation puis réessayez.";
+    status.classList.add("is-error");
+    input.focus();
+    return;
+  }
   const text = input.value.trim();
   if (!text) {
     status.textContent = "Écrivez quelques mots avant d’afficher votre message.";
@@ -34,8 +40,16 @@ document.querySelector("#demo-form").addEventListener("submit", (event) => {
   }
   messages.scrollTop = messages.scrollHeight;
   input.value = "";
+  status.classList.remove("is-error");
   status.textContent = "Message affiché localement. Aucun envoi, aucune réponse IA.";
   input.focus();
+});
+
+document.querySelector("#chat-error").addEventListener("change", (event) => {
+  status.classList.toggle("is-error", event.target.checked);
+  status.textContent = event.target.checked
+    ? "Indisponibilité simulée : le prochain message restera dans le champ."
+    : "Démonstration disponible. Aucun envoi, aucune réponse IA.";
 });
 
 function revealLinkedDetails() {

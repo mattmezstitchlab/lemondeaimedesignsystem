@@ -8,9 +8,10 @@
   <title>LE MONDE AIME® — Design System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="design-system.css">
   <script src="design-system.js" defer></script>
+  <script src="component-lab.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -42,10 +43,11 @@
         <svg class="flower" aria-hidden="true"><use href="#flower"/></svg>
         <span>LE MONDE<br>AIME<sup>®</sup></span>
       </a>
-      <nav aria-label="Navigation principale">
+      <button class="button secondary mobile-toggle" type="button" aria-expanded="false" aria-controls="main-nav" id="mobile-toggle">Menu</button>
+      <nav id="main-nav" aria-label="Navigation principale">
         <a class="nav-current" href="#accueil" aria-current="page">Design System</a>
         <a href="#principes">Principes</a><a href="#fondations">Fondations</a>
-        <a href="#composants">Composants</a><a href="#assistant">Exemples</a><a href="#ressources">Ressources</a>
+        <a href="#composants">Composants</a><a href="#bibliotheque">Bibliothèque</a><a href="#atelier">Éditeur</a><a href="#comparaison">Avant / Après</a>
       </nav>
       <a class="button primary header-cta" href="#integration">Utiliser ce système <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
     </div>
@@ -82,9 +84,9 @@
           <p class="rule">Texte sombre sur l’accent. Jamais de texte vert accent sur blanc.</p>
         </article>
         <article class="foundation typography">
-          <h3>Typographie</h3><div class="type-preview"><span>Aa</span><p><strong>Inter</strong><br>Moderne, lisible, élégante.</p></div>
+          <h3>Typographie</h3><div class="type-preview"><span>Aa</span><p><strong>Manrope / DM Sans</strong><br>Titres / corps de texte.</p></div>
           <p class="type-h1">Headline 1 — 64/72</p><p class="type-h2">Headline 2 — 48/56</p><p class="type-h3">Headline 3 — 32/40</p><p>Texte — 18/28</p><small>Texte petit — 14/20</small>
-          <p class="rule">Inter disponible librement ; alternative à Suisse. Titres fluides sur mobile.</p>
+          <p class="rule">Manrope pour la hiérarchie éditoriale, DM Sans pour les interfaces compactes. Titres fluides sur mobile.</p>
         </article>
         <article class="foundation spacing">
           <h3>Espacement</h3>
@@ -97,7 +99,7 @@
             <svg class="icon" role="img" aria-label="Cœur"><use href="#heart"/></svg><svg class="icon" role="img" aria-label="Calendrier"><use href="#calendar"/></svg><svg class="icon" role="img" aria-label="Musique"><use href="#music"/></svg><svg class="icon" role="img" aria-label="Lieu"><use href="#pin"/></svg><svg class="icon" role="img" aria-label="Email"><use href="#mail"/></svg>
             <svg class="icon" role="img" aria-label="Éclat"><use href="#spark"/></svg><svg class="icon" role="img" aria-label="Invités"><use href="#people"/></svg><svg class="icon" role="img" aria-label="Photographie"><use href="#camera"/></svg><svg class="icon" role="img" aria-label="Conversation"><use href="#chat"/></svg><svg class="icon" role="img" aria-label="Flèche"><use href="#arrow"/></svg>
           </div>
-          <p class="rule">Contours 1,5 px, extrémités arrondies, grille 24 px. Les actions gardent un libellé accessible.</p>
+          <p class="rule">Propositions, pas un inventaire Lucide vérifié. Contours 1,5 px, grille 24 px, espace icône / texte 8 px. Les actions gardent un libellé accessible.</p>
         </article>
       </div>
     </section>
@@ -146,6 +148,7 @@
               <button class="send" type="submit" aria-label="Afficher le message localement"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
             </form>
             <p class="demo-status" id="demo-status" role="status">Prototype visuel, sans réservation ni collecte de données.</p>
+            <label class="chat-error-control"><input type="checkbox" id="chat-error"> Simuler une indisponibilité locale</label>
           </div>
         </div>
       </div>
@@ -164,13 +167,25 @@
       <div class="reference-notes" id="ressources">
         <details id="principes"><summary>Principes &amp; consignes pour Arena</summary><div class="details-content">
           <p>Cette page et la maquette validée sont la référence visuelle actuelle. Le fichier <a href="index%209.html">index 9.html</a> reste une archive intacte ; les anciens tokens du laboratoire ne sont pas ceux de cette direction.</p>
-          <ul><li>Blanc dominant, vert profond pour les actions, accent réservé aux sélections et repères ; gris texte pour les contenus secondaires.</li><li>Inter, hiérarchie 64/72 · 48/56 · 32/40, grille de 4 px, rayons 12 px pour les cartes et 24 px pour l’assistant. Boutons et chips arrondis.</li><li>Préserver les états hover, sélection, focus et disabled ; bordures douces, cibles de 44 px et libellés explicites.</li><li>Proposer un aperçu isolé avant intégration : desktop, mobile, clavier et contrastes. Pas de publication, de modification backend ou de données.</li></ul>
+          <ul><li>Blanc dominant, vert profond pour les actions, accent réservé aux sélections et repères ; gris texte pour les contenus secondaires.</li><li>Manrope / DM Sans, hiérarchie 64/72 · 48/56 · 32/40, grille de 4 px, rayons 12 px pour les cartes et 24 px pour l’assistant. Boutons et chips arrondis.</li><li>Préserver les états hover, sélection, focus et disabled ; bordures douces, cibles de 44 px et libellés explicites.</li><li>Proposer un aperçu isolé avant intégration : desktop, mobile, clavier et contrastes. Pas de publication, de modification backend ou de données.</li></ul>
           <button class="button secondary" type="button" disabled>État désactivé — indisponible</button>
         </div></details>
-        <details id="audit"><summary>Audit Matt Mez Sax — sources et limites</summary><div class="details-content">
-          <p><strong>Audit direct non réalisable dans cette session :</strong> le dépôt <code>mattmezstitchlab/matt-mez-admin</code> renvoie 404 via GitHub et aucune copie locale n’est disponible. Aucun inventaire actuel des composants ne peut être confirmé.</p>
+        <details id="audit" open><summary>Audit Matt Mez Sax — preuves, inventaire et éléments non vérifiés</summary><div class="details-content">
+          <p><strong>Audit tenté le 9 octobre 2026, bloqué par l’accès :</strong> ouverture réelle de <code>https://mattmezsax.base44.app</code> dans Chromium : <code>net::ERR_NAME_NOT_RESOLVED</code>, page d’erreur navigateur. La vérification réseau confirme une résolution DNS impossible. Le dépôt <code>mattmezstitchlab/matt-mez-admin</code> renvoie 404 via GitHub ; cela ne permet pas de conclure qu’il n’existe pas.</p>
+          <p>Les tentatives aux largeurs 375, 390, 768, 1024 et 1440 px ont produit uniquement des captures diagnostiques de la page d’erreur, conservées hors du dépôt. <strong>Ce ne sont pas des captures du site.</strong> Aucun écran « avant », aucune route privée ni aucun rendu éditeur n’a pu être validé visuellement.</p>
           <p>La documentation déjà présente dans ce dépôt, <code>DESIGN_SYSTEM.md</code>, rapporte un hero vidéo avec assistant public dans <code>src/components/landing/Hero.jsx</code>, et des thèmes sombre / <code>.atelier-clair</code> avec Space Grotesk et Inter dans <code>src/index.css</code>. Ce sont des références antérieures, non revérifiées ici.</p>
-          <p>À vérifier dès qu’un accès en lecture sera fourni : bibliothèque de pictogrammes, boutons, champs, cartes, sections récurrentes, suggestions du chat et éventuel éditeur de landing. Les composants montrés ici sont des propositions, pas un inventaire prétendument extrait du site.</p>
+          <div class="audit-grid">
+            <div class="audit-item"><strong>Header, navigation &amp; footer</strong>Non vérifiés : liens, menus, sticky, focus et comportement mobile.</div>
+            <div class="audit-item"><strong>Hero vidéo &amp; assistant</strong>Références antérieures seulement : aucune vérification des sources vidéo, suggestions, bulles, saisie, erreurs et hauteur réelle.</div>
+            <div class="audit-item"><strong>Prestations &amp; présentation</strong>Non vérifiées : cartes, textes, hiérarchie et rythme des sections.</div>
+            <div class="audit-item"><strong>INSTANTS &amp; galerie vidéo</strong>Non vérifiés : carrousel, swipe, flèches, indicateurs, player et ordre des médias.</div>
+            <div class="audit-item"><strong>Parcours client &amp; formulaires</strong>Non vérifiés : routes, champs, validations, confirmations et éventuelles pages authentifiées.</div>
+            <div class="audit-item"><strong>Primitives, pictos Lucide &amp; thèmes</strong>Non vérifiés : aucun nom d’icône Lucide réellement utilisé, token CSS, police, espacement ou état actuel ne peut être confirmé.</div>
+            <div class="audit-item"><strong>Éditeurs Landing &amp; galerie</strong>Non vérifiés dans le code comme visuellement. Aucun écart public / aperçu ou contrat de données confirmé.</div>
+            <div class="audit-item"><strong>Espace client &amp; administration</strong>Non inspectés : authentification, permissions, demandes, devis et documents sont hors du périmètre de mutation.</div>
+          </div>
+          <p>Code à fournir en lecture seule : <code>Landing.jsx</code>, <code>Hero.jsx</code>, <code>AssistantChat.jsx</code>, <code>AssistantMobile.jsx</code>, <code>GallerySection.jsx</code>, <code>LandingEditor.jsx</code>, <code>GalerieEditor.jsx</code>, formulaires, primitives et CSS. Les chemins et imports exacts restent à relever.</p>
+          <p>Pour terminer l’inventaire réel : fournir cet accès et des captures autorisées ou rétablir l’accès réseau. Pour les routes authentifiées, examiner ensuite le code et marquer les écrans sans capture comme non vérifiés visuellement. Les icônes SVG de cette page sont des propositions utilitaires, jamais présentées comme un export Lucide du site.</p>
         </div></details>
         <details id="application-landing"><summary>Landing page — intégration progressive</summary><div class="details-content"><p>Tester d’abord un hero et une carte de prestation dans un aperçu séparé. Conserver la vidéo, les parcours et la logique conversationnelle existants ; adapter uniquement leur enveloppe visuelle après validation.</p></div></details>
         <details id="application-editor"><summary>Landing editor — contrat des blocs à vérifier</summary><div class="details-content"><p>Vérifier l’existence et le fonctionnement de l’éditeur avant de proposer des blocs hero, prestation, témoignage et conversation. Réutiliser les tokens et états de cette page sans changer la structure des données ni les règles de publication.</p></div></details>
@@ -179,6 +194,158 @@
         <details><summary>Logo, photographies &amp; périmètre</summary><div class="details-content"><p>Le symbole floral plein reprend le dessin SVG <code>#i-flower</code> de l’archive, avec le mot-symbole sur deux lignes selon la maquette. La typographie du mot-symbole est une reconstruction, pas un fichier vectoriel officiel fourni.</p><p>Les photographies Unsplash illustrent les proportions, avec une réception distincte derrière l’assistant. Elles ne reproduisent pas exactement les visuels de la maquette. Vérifier les droits et choisir les médias définitifs avant exploitation. Les polices et images nécessitent Internet ; aucun message saisi n’est transmis.</p><p>Travail limité au design system : aucune modification de Matt Mez Sax, de Base44, du backend ou des données ; aucun déploiement demandé.</p></div></details>
       </div>
     </section>
+    <section class="wrap reference-section lab-section" id="bibliotheque" aria-labelledby="library-title">
+      <div class="section-heading"><h2 id="library-title"><span>05.</span> Bibliothèque interactive</h2><p>Des contrats d’interface, pas des opérations métier</p></div>
+      <p class="section-intro">Chaque exemple est indépendant. Aucun compte, demande, devis ou dossier réel. Les comportements ci-dessous sont des propositions à confronter au code Matt Mez Sax, non des copies de composants audités.</p>
+      <div class="lab-grid">
+        <article class="lab-panel">
+          <h3>Navigation &amp; menus</h3>
+          <nav class="sample-nav" aria-label="Exemple de navigation publique"><a href="#assistant">Assistant</a><a href="#medias">INSTANTS</a><a href="#atelier">Aperçu</a></nav>
+          <details class="sample-menu"><summary>Menu compact</summary><nav aria-label="Exemple de menu compact"><a href="#form-lab">Formulaire</a><a href="#documents">Documents</a><a href="#matrice">Intégration</a></nav></details>
+          <p class="rule">Menu mobile dans le header : état ouvert annoncé, Échap ferme et rend le focus au bouton. Les liens ferment le menu. Sans JavaScript, la navigation reste disponible.</p>
+        </article>
+        <article class="lab-panel">
+          <h3>Boutons &amp; chips — tous les états</h3>
+          <div class="state-grid">
+            <span><button class="button primary" type="button" id="normal-action">Normal</button><small>Cliquer : confirmation locale</small></span>
+            <span><button class="button primary sample-hover" type="button" data-state-action="Survol">Survol</button><small>Aperçu + vrai hover</small></span>
+            <span><button class="button secondary sample-focus" type="button" data-state-action="Focus">Focus</button><small>Aperçu + touche Tab</small></span>
+            <span><button class="button primary" type="button" aria-pressed="false" data-toggle>Actif</button><small>Basculer la sélection</small></span>
+            <span><button class="button secondary" type="button" disabled>Désactivé</button><small>Aucune action</small></span>
+            <span><button class="button primary" type="button" id="loading-action">Simuler le chargement</button><small>Durée locale : 800 ms</small></span>
+          </div>
+          <div class="chips state-chips"><button class="chip sample-hover" type="button" aria-pressed="false" data-toggle>Survol</button><button class="chip sample-focus" type="button" aria-pressed="false" data-toggle>Focus</button><button class="chip" type="button" disabled>Indisponible</button><button class="chip" type="button" id="loading-chip">Charger une suggestion</button></div>
+          <p class="feedback" id="action-status" role="status">Normal, survol, focus, actif, désactivé et chargement.</p>
+        </article>
+        <article class="lab-panel" id="form-lab">
+          <h3>Formulaire complet</h3>
+          <p class="rule">Utiliser uniquement des informations fictives. Validation locale ; rien n’est transmis ni conservé au rechargement.</p>
+          <form id="example-form" novalidate>
+            <div class="form-grid">
+              <div><label for="example-title">Nom du projet <span aria-hidden="true">*</span></label><input class="field" id="example-title" required maxlength="80" placeholder="Projet de démonstration" aria-describedby="title-error"><p class="field-error" id="title-error"></p></div>
+              <div><label for="example-email">Email fictif <span aria-hidden="true">*</span></label><input class="field" id="example-email" type="email" required placeholder="demo@example.com" aria-describedby="email-error"><p class="field-error" id="email-error"></p></div>
+              <div><label for="example-service">Prestation <span aria-hidden="true">*</span></label><select class="field" id="example-service" required aria-describedby="service-error"><option value="">Choisir une prestation</option><option>Cérémonie</option><option>Vin d’honneur</option><option>Soirée</option></select><p class="field-error" id="service-error"></p></div>
+              <div><label for="example-date">Date souhaitée <span aria-hidden="true">*</span></label><input class="field" id="example-date" type="date" required aria-describedby="date-error"><p class="field-error" id="date-error"></p></div>
+            </div>
+            <label for="example-description">Votre idée (facultatif)</label><textarea class="field" id="example-description" rows="3" maxlength="500" placeholder="Une ambiance intime et chaleureuse…"></textarea>
+            <div class="demo-controls"><button class="button primary" type="submit">Valider localement</button><button class="button secondary" type="reset">Réinitialiser</button></div>
+            <p class="feedback" id="form-status" role="status">Les champs marqués * sont obligatoires.</p>
+          </form>
+        </article>
+        <article class="lab-panel" id="documents">
+          <h3>Cartes, synthèses &amp; documents</h3>
+          <p class="rule">Supports de mise en page seulement. Aucun nom, contact ou montant client ; aucun contrat ni document commercial généré.</p>
+          <div class="document-card"><span class="badge">Démonstration</span><h4>Dossier exemple</h4><dl><div><dt>Prestation</dt><dd>Vin d’honneur</dd></div><div><dt>État</dt><dd>Brouillon fictif</dd></div><div><dt>Contact</dt><dd>Non renseigné</dd></div></dl>
+            <details><summary>Afficher la synthèse</summary><p class="rule">Carte compacte, informations alignées, action secondaire unique. Les champs et permissions réels restent à vérifier dans le dépôt applicatif.</p></details>
+            <button class="button secondary" type="button" id="download-example">Télécharger la fiche de démonstration (.txt)</button>
+          </div>
+          <p class="feedback" id="document-status" role="status">Le fichier contient uniquement les libellés fictifs affichés.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap reference-section lab-section" id="medias" aria-labelledby="media-title">
+      <div class="section-heading"><h2 id="media-title"><span>06.</span> Médias &amp; INSTANTS</h2><p>Lecture volontaire, pas d’autoplay sonore</p></div>
+      <p class="section-intro">Les mécanismes ci-dessous sont démonstratifs. Aucun média INSTANTS de production n’est remplacé. Aucun URL vidéo tiers n’est inventé ; tester la lecture avec un fichier local dont vous détenez les droits.</p>
+      <div class="lab-grid">
+        <article class="lab-panel">
+          <h3>Hero vidéo</h3>
+          <div class="video-sample"><video id="hero-video-demo" controls playsinline preload="metadata" aria-label="Vidéo locale de démonstration"></video><p id="video-placeholder">Choisissez un fichier vidéo local pour vérifier lecture, pause et cadrage.</p></div>
+          <label for="video-file">Vidéo locale (sans upload)</label><input class="field" id="video-file" type="file" accept="video/*">
+          <p class="feedback" id="video-status" role="status">Pas de média chargé. Le fichier reste sur votre appareil.</p>
+          <p class="rule">Ratio 16:9, object-fit: cover. Ajouter les sous-titres du média définitif ; lecture sonore uniquement sur action utilisateur. Contrôles natifs accessibles.</p>
+        </article>
+        <article class="lab-panel">
+          <h3>Carrousel INSTANTS</h3>
+          <div class="instant-carousel" role="region" aria-roledescription="carrousel" aria-label="INSTANTS de démonstration">
+            <figure id="instant-slide"><img id="instant-image" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Couple dans un jardin — photographie illustrative." width="800" height="450" loading="lazy"><figcaption id="instant-caption">Cérémonie — photographie illustrative</figcaption></figure>
+            <div class="carousel-controls"><button class="button secondary" type="button" id="instant-prev" aria-label="INSTANT précédent">←</button><p id="instant-status" role="status">1 / 3</p><button class="button secondary" type="button" id="instant-next" aria-label="INSTANT suivant">→</button></div>
+            <div class="carousel-dots" aria-label="Choisir un INSTANT"><button type="button" data-slide="0" aria-label="Afficher la cérémonie" aria-current="true">1</button><button type="button" data-slide="1" aria-label="Afficher la réception">2</button><button type="button" data-slide="2" aria-label="Afficher le saxophone">3</button></div>
+          </div>
+          <p class="rule">Flèches gauche / droite au clavier quand le focus est dans le carrousel. Pas de défilement automatique, indicateur annoncé sans déplacement du focus.</p>
+        </article>
+        <article class="lab-panel">
+          <h3>Galerie vidéo</h3>
+          <div class="gallery-examples"><button class="media-tile" type="button" data-gallery="Cérémonie"><svg class="icon" aria-hidden="true"><use href="#music"/></svg><strong>Cérémonie</strong><span>Ouvrir la fiche média</span></button><button class="media-tile" type="button" data-gallery="Soirée"><svg class="icon" aria-hidden="true"><use href="#music"/></svg><strong>Soirée</strong><span>Ouvrir la fiche média</span></button></div>
+          <p class="rule">Aucun lien vidéo de production disponible pour l’audit. La modale démontre ouverture, fermeture, focus piégé et retour au déclencheur ; elle n’imite pas une lecture.</p>
+          <dialog id="gallery-dialog" aria-labelledby="gallery-title"><div class="dialog-content"><h3 id="gallery-title">Fiche média de démonstration</h3><p id="gallery-description"></p><p class="rule">Vidéo non fournie. Importez un média autorisé dans la démonstration Hero vidéo pour tester la lecture réelle.</p><form method="dialog"><button class="button primary">Fermer la fiche média</button></form></div></dialog>
+        </article>
+        <article class="lab-panel">
+          <h3>Photographies &amp; états de repli</h3>
+          <p>Réserver les ratios avant chargement. Un média absent ne doit pas masquer le texte ou les actions. Le grand visuel de réception derrière l’assistant reste conservé.</p>
+          <div class="media-fallback" role="img" aria-label="Exemple de média indisponible"><span>Photographie indisponible</span><small>Le contenu et les actions restent accessibles</small></div>
+          <p class="rule">Photographies Unsplash externes : droits et disponibilité à confirmer avant intégration. Pas de recadrage automatique des vidéos métier, de nouvelle donnée média ou de suppression des contenus existants.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap reference-section lab-section" id="atelier" aria-labelledby="editor-title">
+      <div class="section-heading"><h2 id="editor-title"><span>07.</span> Atelier Landing / éditeur</h2><p>Un même composant, plusieurs contextes</p></div>
+      <p class="section-intro"><strong>Prototype de contrat à valider, pas un remplacement de LandingEditor.</strong> Le schéma applicatif n’est pas accessible : titre, description, CTA et prestation sont uniquement des champs de démonstration. Aucun branchement au backend, à un éditeur réel ou au stockage du navigateur.</p>
+      <div class="editor-layout">
+        <form class="lab-panel editor-form" id="editor-form" novalidate>
+          <h3>Paramètres du brouillon</h3>
+          <label for="draft-title">Titre <span aria-hidden="true">*</span></label><input class="field" id="draft-title" value="Une ambiance musicale sur mesure" required maxlength="80" aria-describedby="draft-title-error"><p class="field-error" id="draft-title-error"></p>
+          <label for="draft-description">Description <span aria-hidden="true">*</span></label><textarea class="field" id="draft-description" rows="3" required maxlength="240" aria-describedby="draft-description-error">Un exemple indépendant pour comparer les contextes public et éditeur.</textarea><p class="field-error" id="draft-description-error"></p>
+          <label for="draft-cta">Libellé d’action <span aria-hidden="true">*</span></label><input class="field" id="draft-cta" value="Parlons de votre projet" required maxlength="40" aria-describedby="draft-cta-error"><p class="field-error" id="draft-cta-error"></p>
+          <label for="draft-service">Prestation</label><select class="field" id="draft-service"><option>Vin d’honneur</option><option>Cérémonie</option><option>Soirée</option></select>
+          <label class="checkbox-label"><input type="checkbox" id="save-error"> Simuler une erreur de sauvegarde</label>
+          <div class="demo-controls"><button class="button primary" id="save-draft" type="submit">Sauvegarder en mémoire</button><button class="button secondary" type="button" id="reset-draft">Réinitialiser</button></div>
+          <p class="feedback" id="editor-status" role="status">Version enregistrée et brouillon identiques. Le rechargement efface tout.</p>
+        </form>
+        <div class="editor-preview lab-panel">
+          <div class="tablist" role="tablist" aria-label="Contexte d’affichage">
+            <button type="button" role="tab" aria-selected="true" aria-controls="public-panel" id="public-tab" tabindex="0">Landing publique</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="draft-panel" id="draft-tab" tabindex="-1">Brouillon / éditeur</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="mobile-panel" id="mobile-tab" tabindex="-1">Mobile</button>
+          </div>
+          <div class="preview-slot" id="public-panel" role="tabpanel" aria-labelledby="public-tab" tabindex="0"><p class="preview-label">Version enregistrée uniquement en mémoire — non publiée</p><div data-preview="saved"></div></div>
+          <div class="preview-slot" id="draft-panel" role="tabpanel" aria-labelledby="draft-tab" tabindex="0" hidden><p class="preview-label">Brouillon immédiat — même composant, cadre d’édition</p><div class="editor-frame" data-preview="draft"></div></div>
+          <div class="preview-slot" id="mobile-panel" role="tabpanel" aria-labelledby="mobile-tab" tabindex="0" hidden><p class="preview-label">Brouillon en largeur mobile 375 px maximum</p><div class="mobile-frame" data-preview="draft"></div></div>
+          <p class="feedback" id="preview-action-status" role="status">Les CTA des aperçus affichent une confirmation locale seulement.</p>
+          <p class="rule">Le renderer est partagé : aucune variation de contenu entre le brouillon et son aperçu mobile. Différence volontaire : la vue publique montre la dernière version enregistrée. L’enveloppe d’édition ne doit pas changer les tokens publics.</p>
+        </div>
+      </div>
+      <p class="section-intro">Écarts réels Landing / éditeur : <strong>non vérifiés</strong>. Vérifier les noms de champs, valeurs nulles, ordre des blocs, réglages média, fallback et permissions avant de proposer un adaptateur. Aucun composant ne peut être déclaré compatible avec les données existantes sans cette étape.</p>
+    </section>
+
+    <section class="wrap reference-section lab-section" id="comparaison" aria-labelledby="comparison-title">
+      <div class="section-heading"><h2 id="comparison-title"><span>08.</span> Avant / Après — Matt Mez Sax</h2><p>Référence actuelle vs proposition isolée</p></div>
+      <div class="comparison-grid">
+        <article class="lab-panel comparison-before"><span class="badge">Avant — non vérifié</span><h3>Référence actuelle</h3><p>La référence est <a href="https://mattmezsax.base44.app" target="_blank" rel="noopener noreferrer">mattmezsax.base44.app</a>, pas une reconstruction supposée de ses styles.</p><p>Aucune capture validée du site n’est disponible ici. Le panneau reste volontairement sans faux écran « avant ». Les thèmes et composants cités dans la documentation antérieure ne constituent pas un audit actuel.</p><a class="text-link" href="#audit">Consulter les preuves et limites →</a></article>
+        <article class="lab-panel"><span class="badge">Après — proposition</span><h3>Enveloppe harmonisée</h3><div data-preview="saved"></div><p class="rule">Manrope / DM Sans, boutons vert profond, sélection vert clair, bordures douces, focus visible et cartes compactes. Même composant que dans l’atelier.</p></article>
+      </div>
+      <div class="lab-grid comparison-notes"><article><h3>Composants réutilisés</h3><p>Boutons, chips, champs, carte de prestation et panneau conversationnel ; le contenu réel reste géré par l’application.</p></article><article><h3>Effets attendus / risques</h3><p>Hiérarchie et lisibilité améliorées à valider, sans gain de conversion prétendu. Risques : collisions CSS, rupture de données éditées, recadrage vidéo, scroll du chat et contraste sur média. Tests dans la matrice ci-dessous.</p></article></div>
+    </section>
+
+    <section class="wrap reference-section lab-section" id="matrice" aria-labelledby="matrix-title">
+      <div class="section-heading"><h2 id="matrix-title"><span>09.</span> Matrice &amp; application progressive</h2><p>Aucune variable globale dans l’application</p></div>
+      <p class="section-intro">Les noms de fichiers demandés sont des <strong>cibles à localiser</strong>, pas des chemins confirmés. Seul <code>src/components/landing/Hero.jsx</code> est cité par une documentation antérieure, non revérifiée. Aucune ligne ci-dessous n’autorise une intégration sans accès au code.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Matrice de correspondance, défilement horizontal possible"><table>
+        <caption>Composant existant → proposition → fichier → risque → test nécessaire</caption>
+        <thead><tr><th scope="col">Périmètre / composant à vérifier</th><th scope="col">Design system</th><th scope="col">Fichier concerné — statut</th><th scope="col">Risque</th><th scope="col">Test avant adoption</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Landing publique / navigation et sections</th><td>Header responsive, menu, liens et carte</td><td>Landing.jsx — chemin à localiser</td><td>Moyen : ancres, ordre de blocs</td><td>Navigation clavier, mobile, contenu existant, retour navigateur</td></tr>
+          <tr><th scope="row">Landing publique / hero vidéo</th><td>Ratio réservé, contrôles, CTA</td><td>src/components/landing/Hero.jsx — référence antérieure</td><td>Élevé : vidéo, autoplay, recadrage</td><td>Lecture sur iOS / Android, poster, son, motion réduite, erreur réseau</td></tr>
+          <tr><th scope="row">Assistant public / desktop</th><td>Panneau stable, log, saisie, erreurs</td><td>AssistantChat.jsx — chemin à localiser</td><td>Élevé : moteur et scroll</td><td>Suggestions, réponse, retry sans doublon, focus, devis ; moteur inchangé</td></tr>
+          <tr><th scope="row">Assistant public / mobile</th><td>Empilement, saisie visible</td><td>AssistantMobile.jsx — chemin à localiser</td><td>Élevé : clavier virtuel</td><td>375 / 390 px, safe areas, scroll, orientation et fermeture</td></tr>
+          <tr><th scope="row">Landing publique / INSTANTS et galerie</th><td>Carrousel manuel, indicateurs et fiche média</td><td>GallerySection.jsx et composant INSTANTS — à localiser</td><td>Élevé : source et ordre des médias</td><td>Flèches, swipe existant, pause, sous-titres, vidéo indisponible, chargement</td></tr>
+          <tr><th scope="row">Éditeur Landing / brouillon</th><td>Renderer partagé + cadre éditeur isolé</td><td>LandingEditor.jsx — chemin et schéma à vérifier</td><td>Élevé : données et publication</td><td>Public vs aperçu, champs vides, erreur / succès de sauvegarde, permissions</td></tr>
+          <tr><th scope="row">Éditeur galerie</th><td>Carte média + champs</td><td>GalerieEditor.jsx — chemin à localiser</td><td>Élevé : média supprimé ou réordonné</td><td>Préserver upload, ordre, lecture et URLs ; ne changer que les styles</td></tr>
+          <tr><th scope="row">Espace client / formulaires et documents</th><td>Champs, synthèse et carte document</td><td>Routes privées et composants — non identifiés</td><td>Critique : demandes, devis, documents</td><td>Authentification, validation, erreurs, PDF, téléchargement, aucune donnée exposée</td></tr>
+          <tr><th scope="row">Administration privée / thèmes et primitives</th><td>Aucune migration automatique</td><td>src/index.css — référence antérieure ; primitives non vérifiées</td><td>Critique : thèmes et permissions</td><td>Thème sombre / clair, absence de fuite CSS ; tests métier existants inchangés</td></tr>
+        </tbody>
+      </table></div>
+      <ol class="integration-steps">
+        <li><strong>Compléter les preuves.</strong> Accès au site et au code en lecture seule ; capturer 375, 390, 768, 1024 et 1440 px. Lister routes privées non vérifiées et icônes Lucide exactes.</li>
+        <li><strong>Valider les contrats de données.</strong> Relever les props publiques / éditeur, champs média et fallbacks. Adapter ce prototype aux données existantes, jamais l’inverse.</li>
+        <li><strong>Isoler les styles.</strong> Tokens sous une racine Landing dédiée ; ne pas copier <code>:root</code>, styles de balises ou variables globales de ce laboratoire dans Matt Mez Admin.</li>
+        <li><strong>Partager le rendu.</strong> Un composant public réutilisé par l’aperçu brouillon, avec commandes d’édition séparées. Comparer les mêmes données desktop / mobile avant intégration.</li>
+        <li><strong>Porter par famille après accord.</strong> D’abord boutons / champs / cartes ; puis navigation et médias ; assistant en dernier, sans toucher aux moteurs, demandes, devis, documents ou permissions. Espace client et administration restent spécifiques.</li>
+        <li><strong>Recette et retour arrière.</strong> Comparaisons visuelles, clavier, contrastes, erreurs et tests métier existants. Faire valider chaque étape et préserver la possibilité de revenir aux styles précédents. Aucune publication automatique.</li>
+      </ol>
+    </section>
+    <template id="landing-card-template"><article class="harmonized-card"><span class="badge" data-card-service></span><h3 data-card-title></h3><p data-card-description></p><button class="button primary" type="button" data-card-cta></button><small>Exemple indépendant · aucun dossier réel</small></article></template>
   </main>
   <footer class="site-footer"><div class="wrap footer-inner">
     <a class="brand" href="#accueil" aria-label="LE MONDE AIME — retour en haut"><svg class="flower" aria-hidden="true"><use href="#flower"/></svg><span>LE MONDE<br>AIME<sup>®</sup></span></a>
