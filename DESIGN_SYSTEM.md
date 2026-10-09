@@ -1,22 +1,48 @@
 # LE MONDE AIME® — Design System Lab
 
 ## État
-Prototype **indépendant** sur la branche `design-system-lab`, dans `index.html`. Aucun changement dans `matt-mez-admin` et aucune publication Base44.
+Page HTML **indépendante** dans `index.html`, avec `design-system.css`, `design-system.js` et `component-lab.js`. Aucun changement dans `matt-mez-admin`, aucune connexion métier et aucune publication Base44.
 
 ## Source & limites
-- La page originale `index 9.html` reste intacte et fait autorité pour le dessin initial.
-- Valeurs extraites : **DM Sans** (corps), **Manrope** (titres), `#20231f`, `#71756d`, `#e6e7e1`, `#f5f5f1`, `#d4ed9c`, `cubic-bezier(.22,1,.36,1)`.
-- Le pictogramme floral de cette page de laboratoire est une **interprétation provisoire**, pas le logo SVG original exact. Récupérer le symbole `#i-flower` du HTML de référence avant toute généralisation.
+- La maquette validée est la référence visuelle ; `index 9.html` reste une archive intacte.
+- Direction actuelle : **DM Sans** (corps), **Manrope** (titres), vert profond `#1f3f28`, accent `#a3d65c`, sable `#f6f7f5`, texte `#485563`, bordures `#e5e7eb`, focus `#537d36`. Les boutons utilisent le vert sombre `#192e28`.
+- Le symbole floral plein reprend `#i-flower` de l’archive ; le mot-symbole sur deux lignes est reconstruit typographiquement, pas un fichier officiel fourni.
 - Les photographies externes servent uniquement à visualiser les proportions ; aucune licence d'exploitation n'est présumée.
-- Les boutons du laboratoire sont des exemples de design, pas des actions réelles. Le prototype conversationnel affiche les messages localement et ne contacte pas de serveur.
+- Les interactions sont locales : chips, menu mobile, boutons en chargement, formulaire validé, assistant avec erreur simulée et téléchargement d’une fiche fictive.
+- L’atelier utilise un renderer partagé entre vue publique (version enregistrée en mémoire), brouillon et mobile. Sauvegarde/erreur/reset sont simulés ; aucune persistance au rechargement, aucune publication.
+- Les médias comprennent un carrousel manuel, une fiche galerie en modale et un lecteur vidéo local. L’import vidéo utilise un object URL sur l’appareil, sans upload. Aucun URL vidéo de production n’est inventé.
 
 ## Compatibilité Matt Mez Sax
-Inspection ciblée : `matt-mez-admin/src/index.css` conserve un thème sombre racine, une classe `.atelier-clair`, les polices **Space Grotesk** et **Inter** et un ensemble de variables de composants. `src/components/landing/Hero.jsx` utilise une vidéo et l'assistant public. Ne **jamais** appliquer globalement les variables ou classes de ce laboratoire aux thèmes existants.
+**Audit tenté le 9 octobre 2026, non abouti.** Chromium renvoie `net::ERR_NAME_NOT_RESOLVED` sur `https://mattmezsax.base44.app` ; curl confirme l’échec DNS. Les captures aux largeurs 375, 390, 768, 1024 et 1440 px sont uniquement des diagnostics d’erreur conservés dans `/tmp/mattmez-audit`, pas des captures du site et pas des preuves de son apparence.
+
+L’accès GitHub à `mattmezstitchlab/matt-mez-admin` renvoie 404. Les fichiers React, CSS, imports Lucide, contrats de données et différences public/éditeur n’ont donc pas pu être lus. Aucun écran privé ou authentifié n’a été inspecté visuellement.
+
+### Nouvelle tentative de finalisation technique
+
+Le dépôt exact confirmé par le propriétaire a été redemandé le 9 octobre 2026 avec l’outil GitHub autorisé de cette session : lecture de la racine en 404, recherche exacte refusée pour absence de visibilité ou de permission. Cela ne contredit pas son accès depuis une autre connexion GitHub autorisée. Aucun accès alternatif non autorisé n’a été tenté.
+
+La direction artistique, les composants, les feuilles CSS et les comportements JavaScript restent inchangés. Seul le dossier de compatibilité est complété dans la page :
+
+- `#matrice` : périmètre/composant, fichier et preuve, style actuel, style proposé, données/props à relever, risque et tests. Chaque valeur actuelle inconnue est marquée non inspectée, sans présenter un composant supposé comme réel.
+- Comparaison des tokens : valeurs locales vérifiées dans `design-system.css:1-25`, bouton `#192e28` ; valeurs applicatives encore inconnues. Les références antérieures de thèmes/polices ne sont pas des mappings confirmés.
+- Risque local vérifié : les sélecteurs `:root`, balises et classes génériques du laboratoire ne sont pas isolés pour une application multi-thème. Ne pas importer la feuille entière dans Matt Mez Admin. Les conflits de providers, primitives, Tailwind et portails applicatifs restent des hypothèses à examiner.
+- Éditeur : relever ses styles de sélection/toolbar/poignées, états dirty/save/publish et renderer d’aperçu ; le prototype `title/description/cta/service` ne prouve aucune correspondance avec un schéma React/Base44 réel.
+- `#reprise-audit` : commandes GitHub, Git et ripgrep **fournies pour un audit ultérieur**, pas exécutées sur l’application ici. Elles utilisent une copie autorisée déjà disponible, sans clone ni mutation.
+
+Le dossier n’est pas une certification de compatibilité. Avant toute migration, remplacer les inconnues par des références révision/fichier/symbole/ligne, suivre imports/aliases/registres Lucide jusqu’aux usages, vérifier les props/types/defaults/callbacks et comparer public/éditeur sur la même fixture anonymisée. « Inspecté dans le code » et « vérifié visuellement » restent deux statuts séparés.
+
+Fichiers à examiner : Landing, Hero, AssistantChat/AssistantMobile, INSTANTS, GallerySection, LandingEditor et renderer d’aperçu, GalerieEditor, formulaires et schémas, primitives, documents/devis, layouts/routage/providers, CSS et configuration des thèmes, dépendances et tests existants. Ne partager que les sources autorisées utiles ; exclure secrets, `.env`, exports clients et données de production.
+
+La version antérieure de cette documentation rapportait un thème sombre, `.atelier-clair`, Space Grotesk / Inter dans `src/index.css`, et une vidéo avec assistant dans `src/components/landing/Hero.jsx`. Ces informations sont **antérieures, non revérifiées**, pas des observations de cette session.
+
+L’inventaire visible dans `index.html#audit` couvre chaque famille demandée avec son statut non vérifié. La comparaison `#comparaison` ne fabrique pas d’écran « avant ». La matrice `#matrice` distingue Landing publique, éditeur, assistant, espace client et administration ; les noms de fichiers demandés sont des cibles à localiser, pas des chemins confirmés.
+
+Pour terminer l’audit réel, fournir un accès en lecture au dépôt et un accès réseau au site (ou des captures autorisées). Ne **jamais** appliquer globalement les variables ou styles de ce laboratoire aux thèmes existants.
 
 ### Stratégie sûre
 1. Arena s'appuie sur `index.html` pour proposer une **maquette uniquement**.
-2. Conserver la vidéo hero, les deux parcours, la conversation, les données, les documents et les permissions.
-3. N'extraire que les styles approuvés et les appliquer dans un namespace dédié à la Landing.
+2. Vérifier les contrats public/éditeur et les icônes réelles avant de déclarer un composant compatible. Conserver vidéo hero, INSTANTS, conversation, demandes, devis, documents, données et permissions.
+3. N'extraire que les styles approuvés dans un namespace Landing dédié. Ne pas copier `:root` ou les styles de balises du laboratoire dans l’application.
 4. Capturer des comparaisons aux largeurs 320, 375, 390, 430, 768, 1024 et 1440 px.
 5. Tester clavier, scroll interne du chat, contraste, PDF/devis, formulaires, navigation et gestion des erreurs.
 6. Créer une PR dédiée dans `matt-mez-admin` **uniquement après validation** ; aucun merge ou déploiement automatique.
@@ -25,4 +51,18 @@ Inspection ciblée : `matt-mez-admin/src/index.css` conserve un thème sombre ra
 > Reprends les principes visuels de LE MONDE AIME Design System Lab (Manrope / DM Sans, fond blanc, espaces généreux, accent lime discret, composants compacts). Produis une proposition visuelle de la Landing Matt Mez Sax, sans copier les contenus LE MONDE AIME ni toucher au moteur de réservation ou à l'administration. Ne modifie aucune donnée, aucun rôle, aucun backend et n'effectue aucune publication. Fournis un avant/après responsive et les écarts explicitement proposés avant toute intégration.
 
 ## Contrôle de qualité à faire avant adoption
-Comparer le logo original avec celui du laboratoire ; inspecter les contrastes (lime sur blanc en particulier) ; vérifier les licences média, le chargement de fonts, la réduction des animations, et les parcours fonctionnels en environnement isolé.
+Comparer le logo officiel avec la reconstruction ; vérifier les licences média et le chargement des fonts. Contrôler la bibliothèque et l’atelier à 375, 390, 768, 1024 et 1440 px, le clavier, les contrastes, la réduction des animations et les parcours fonctionnels en environnement isolé.
+
+Scénarios : menu mobile puis Échap ; chips actif/désactivé ; boutons et chips en chargement ; erreurs du formulaire puis correction/reset ; assistant indisponible puis retry sans perte de texte ; carrousel aux flèches ; modale avec retour du focus ; import vidéo locale valide/invalide ; brouillon différent du public puis sauvegarde réussie/échouée ; changement pendant sauvegarde et réinitialisation ; navigation des onglets aux flèches/Home/End ; texte HTML affiché sans interprétation.
+
+Il n’existe pas de suite de tests, build ou linter configurés dans ce dépôt statique. Vérifications disponibles : syntaxe JavaScript avec Node, `git diff --check`, navigateur installé, scan des secrets et CodeQL. Les médias et polices externes peuvent être bloqués dans l’environnement de vérification ; ne pas confondre un layout testé avec une disponibilité média confirmée.
+
+## Vérifications réalisées le 9 octobre 2026
+
+- Chromium : aucun débordement de page à 375, 390, 768, 1024 et 1440 px ; tableau défilant isolé. Captures locales du laboratoire dans `/tmp/design-system-verification/design-system-{largeur}.png` ; elles ne représentent pas le site Matt Mez Sax.
+- Menu/Échap, onglets/flèches/Home/End, formulaires invalides puis valides/reset, chat erreur/retry sans perte de texte, scroll et hauteur stable, chips et boutons en chargement, carrousel, modale et retour du focus.
+- Renderer identique pour brouillon/mobile ; vue publique inchangée avant sauvegarde. Succès, erreur, reset pendant sauvegarde et modifications concurrentes testés ; aucune persistance après rechargement.
+- Saisie HTML rendue en texte (chat et titre édité), pas d’interprétation. Focus doux sur tous les types de champs et couleurs forcées ; animations réduites.
+- Contrastes : texte 7,62:1, bouton 14,36:1, sélection 8,43:1, erreur 7,19:1, focus 4,82:1.
+- Vidéo WebM locale de démonstration : chargement, lecture sur action utilisateur et pause ; fichier non vidéo rejeté, aucun upload.
+- Limites : polices/photos externes non chargées dans le sandbox ; audit du site et du dépôt bloqué ; Safari/iOS/Android et fonctions métier non vérifiés.
