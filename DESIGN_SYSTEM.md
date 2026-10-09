@@ -17,6 +17,22 @@ Page HTML **indépendante** dans `index.html`, avec `design-system.css`, `design
 
 L’accès GitHub à `mattmezstitchlab/matt-mez-admin` renvoie 404. Les fichiers React, CSS, imports Lucide, contrats de données et différences public/éditeur n’ont donc pas pu être lus. Aucun écran privé ou authentifié n’a été inspecté visuellement.
 
+### Nouvelle tentative de finalisation technique
+
+Le dépôt exact confirmé par le propriétaire a été redemandé le 9 octobre 2026 avec l’outil GitHub autorisé de cette session : lecture de la racine en 404, recherche exacte refusée pour absence de visibilité ou de permission. Cela ne contredit pas son accès depuis une autre connexion GitHub autorisée. Aucun accès alternatif non autorisé n’a été tenté.
+
+La direction artistique, les composants, les feuilles CSS et les comportements JavaScript restent inchangés. Seul le dossier de compatibilité est complété dans la page :
+
+- `#matrice` : périmètre/composant, fichier et preuve, style actuel, style proposé, données/props à relever, risque et tests. Chaque valeur actuelle inconnue est marquée non inspectée, sans présenter un composant supposé comme réel.
+- Comparaison des tokens : valeurs locales vérifiées dans `design-system.css:1-25`, bouton `#192e28` ; valeurs applicatives encore inconnues. Les références antérieures de thèmes/polices ne sont pas des mappings confirmés.
+- Risque local vérifié : les sélecteurs `:root`, balises et classes génériques du laboratoire ne sont pas isolés pour une application multi-thème. Ne pas importer la feuille entière dans Matt Mez Admin. Les conflits de providers, primitives, Tailwind et portails applicatifs restent des hypothèses à examiner.
+- Éditeur : relever ses styles de sélection/toolbar/poignées, états dirty/save/publish et renderer d’aperçu ; le prototype `title/description/cta/service` ne prouve aucune correspondance avec un schéma React/Base44 réel.
+- `#reprise-audit` : commandes GitHub, Git et ripgrep **fournies pour un audit ultérieur**, pas exécutées sur l’application ici. Elles utilisent une copie autorisée déjà disponible, sans clone ni mutation.
+
+Le dossier n’est pas une certification de compatibilité. Avant toute migration, remplacer les inconnues par des références révision/fichier/symbole/ligne, suivre imports/aliases/registres Lucide jusqu’aux usages, vérifier les props/types/defaults/callbacks et comparer public/éditeur sur la même fixture anonymisée. « Inspecté dans le code » et « vérifié visuellement » restent deux statuts séparés.
+
+Fichiers à examiner : Landing, Hero, AssistantChat/AssistantMobile, INSTANTS, GallerySection, LandingEditor et renderer d’aperçu, GalerieEditor, formulaires et schémas, primitives, documents/devis, layouts/routage/providers, CSS et configuration des thèmes, dépendances et tests existants. Ne partager que les sources autorisées utiles ; exclure secrets, `.env`, exports clients et données de production.
+
 La version antérieure de cette documentation rapportait un thème sombre, `.atelier-clair`, Space Grotesk / Inter dans `src/index.css`, et une vidéo avec assistant dans `src/components/landing/Hero.jsx`. Ces informations sont **antérieures, non revérifiées**, pas des observations de cette session.
 
 L’inventaire visible dans `index.html#audit` couvre chaque famille demandée avec son statut non vérifié. La comparaison `#comparaison` ne fabrique pas d’écran « avant ». La matrice `#matrice` distingue Landing publique, éditeur, assistant, espace client et administration ; les noms de fichiers demandés sont des cibles à localiser, pas des chemins confirmés.
