@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="LE MONDE AIME® — Un studio indépendant de création et d’innovation numérique. Des expériences simples, intelligentes et humaines. Découvrez Aime Mariage et Aime Studio.">
+  <title>LE MONDE AIME® — Le digital, avec un supplément d’âme.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;550;600;650;700;750;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=2000&q=85">
+  <style>
+    :root {
+      --ink: #20231f;
+      --muted: #71756d;
+      --line: #e6e7e1;
+      --paper: #f5f5f1;
+      --lime: #d4ed9c;
+      --font: "DM Sans", sans-serif;
+      --heading: "Manrope", sans-serif;
+      --gutter: clamp(24px, 4.5vw, 80px);
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+    body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+    body.modal-open { overflow: hidden; }
+    ::selection { background: var(--lime); color: var(--ink); }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; cursor: pointer; }
+    button:disabled { cursor: wait; }
+    button, input, select, textarea { border-radius: 0; }
+    button { background: none; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    svg { display: inline-block; width: 20px; height: 20px; flex-shrink: 0; vertical-align: middle; }
+    h1, h2, h3, h4, p { margin: 0; }
+    h1, h2, h3, h4 { font-family: var(--heading); font-weight: 500; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    :focus-visible { outline: 2px solid #587238; outline-offset: 6px; }
+    [hidden] { display: none !important; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+    .skip-link { position: fixed; left: 20px; top: -100px; padding: 14px 20px; z-index: 100; background: var(--ink); color: white; }
+    .skip-link:focus { top: 12px; }
+    .wrap { max-width: 1600px; padding-inline: var(--gutter); margin-inline: auto; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 550; letter-spacing: 1.45px; line-height: 1.5; text-transform: uppercase; }
+    .status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #a4c66d; flex-shrink: 0; }
+    .small-label { font-size: 10px; font-weight: 500; letter-spacing: 1.2px; line-height: 1.5; text-transform: uppercase; }
+    .muted { color: var(--muted); }
+    .icon { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .flower { fill: currentColor; width: 37px; height: 37px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 28px; padding: 17px 24px; border: 1px solid var(--ink); border-radius: 50px; font-size: 12px; font-weight: 500; line-height: 1.3; transition: background .25s, color .25s, transform .25s; }
+    .button .icon { width: 16px; height: 16px; transition: transform .3s var(--ease); }
+    .button:hover .icon { transform: translate(2px, -2px); }
+    .button-dark { background: var(--ink); color: white; }
+    .button-dark:hover { background: #40473a; border-color: #40473a; }
+    .button-light:hover { background: var(--ink); color: white; }
+    .button-lime { background: var(--lime); border-color: var(--lime); color: var(--ink); }
+    .button-lime:hover { background: #c4e380; border-color: #c4e380; }
+    .text-link { display: inline-flex; align-items: center; gap: 22px; padding-bottom: 8px; border-bottom: 1px solid #b9bcb1; font-size: 12px; font-weight: 500; transition: border-color .2s; }
+    .text-link:hover { border-color: var(--ink); }
+    .text-link .icon { width: 16px; height: 16px; transition: transform .3s var(--ease); }
+    .text-link:hover .icon { transform: translate(3px, -3px); }
+    .round-arrow { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid currentColor; border-radius: 50%; flex-shrink: 0; transition: background .3s, color .3s, transform .4s var(--ease); }
+    .round-arrow .icon { width: 19px; height: 19px; }
+    .site-header { height: 89px; position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.96); border-bottom: 1px solid #efefeb; backdrop-filter: blur(16px); }
+    .header-inner { height: 100%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 42px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; width: fit-content; }
+    .brand .flower { width: 35px; height: 35px; }
+    .brand-wordmark { font-family: var(--heading); font-size: 14px; font-weight: 800; line-height: 1.13; letter-spacing: -.55px; }
+    .brand-wordmark span { display: block; }
+    .brand-wordmark sup { font-family: var(--font); font-size: 8px; vertical-align: top; margin: 1px 0 0 2px; display: inline-block; }
+    .desktop-nav { display: flex; align-items: center; gap: 30px; height: 100%; }
+    .nav-link { position: relative; font-size: 11px; font-weight: 500; color: #6a6d67; padding: 12px 0; transition: color .2s; }
+    .nav-link:hover, .nav-link[aria-current="page"] { color: var(--ink); }
+    .nav-link::after { content: ""; position: absolute; height: 4px; width: 4px; background: #8eab5b; border-radius: 50%; left: calc(50% - 2px); bottom: 2px; transform: scale(0); transition: transform .2s; }
+    .nav-link[aria-current="page"]::after { transform: scale(1); }
+    .header-actions { justify-self: end; display: flex; align-items: center; gap: 17px; }
+    .nav-contact { padding: 13px 18px; font-size: 10px; gap: 24px; }
+    .nav-contact .icon { width: 14px; height: 14px; color: var(--lime); }
+    .menu-toggle { display: none; width: 34px; height: 38px; border: 0; padding: 7px 3px; }
+    .menu-toggle span { display: block; height: 1px; background: var(--ink); width: 25px; margin: 6px 0; transition: transform .25s; }
+    .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+    .mobile-nav { position: absolute; top: 100%; left: 0; right: 0; padding: 20px var(--gutter) 28px; background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 16px 24px #20231f08; }
+    .mobile-nav a { display: block; font-family: var(--heading); font-size: 23px; padding: 13px 0; border-bottom: 1px solid #f0f0eb; }
+    .mobile-nav .mobile-project { font-family: var(--font); font-size: 13px; margin-top: 14px; padding: 17px 20px; border: none; background: var(--lime); border-radius: 40px; text-align: center; }
+    .page-enter { animation: pageIn .55s var(--ease) both; }
+    @keyframes pageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .will-reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .will-reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Home */
+    .hero-intro { padding-top: 57px; padding-bottom: 44px; }
+    .hero-overline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 27px; }
+    .hero-location { font-size: 9px; letter-spacing: 1px; color: var(--muted); }
+    .hero-title-row { display: grid; grid-template-columns: 1fr 266px; align-items: end; gap: 40px; }
+    .hero-title { font-size: clamp(52px, 6.65vw, 106px); letter-spacing: -.065em; line-height: 1.065; font-weight: 500; }
+    .hero-title span { display: block; }
+    .hero-copy { padding-bottom: 7px; }
+    .hero-copy p { font-size: 14px; line-height: 1.85; color: #74766f; max-width: 270px; }
+    .explore-link { display: inline-flex; align-items: center; gap: 21px; margin-top: 25px; font-size: 11px; font-weight: 500; }
+    .explore-link .round-arrow { width: 31px; height: 31px; border: none; background: var(--lime); }
+    .explore-link .icon { width: 15px; height: 15px; }
+    .explore-link:hover .round-arrow { transform: translateY(3px); background: #c2df8e; }
+    .hero-visual { position: relative; height: clamp(410px, 36.5vw, 600px); margin: 0 24px; overflow: hidden; border-radius: 3px; background: #848b80; }
+    .hero-visual > img { object-position: center 54%; animation: imageIn 1.6s var(--ease) both; }
+    @keyframes imageIn { from { transform: scale(1.035); } to { transform: scale(1); } }
+    .hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #15201e21 0%, transparent 45%, #111f1d55 100%); pointer-events: none; }
+    .hero-photo-top { position: absolute; z-index: 1; top: 29px; left: 38px; right: 34px; display: flex; align-items: center; justify-content: space-between; color: #fff; }
+    .hero-photo-top .small-label { font-size: 8px; letter-spacing: 1.5px; }
+    .photo-explore { border-color: #ffffff6b; width: 38px; height: 38px; }
+    .photo-explore:hover { background: #fff; color: var(--ink); }
+    .hero-photo-bottom { position: absolute; bottom: 34px; left: 38px; right: 38px; display: flex; align-items: end; justify-content: space-between; color: white; z-index: 1; }
+    .photo-story { display: flex; align-items: center; gap: 20px; }
+    .photo-story .flower { width: 42px; height: 42px; color: var(--lime); }
+    .photo-story p { font-family: var(--heading); font-size: 25px; letter-spacing: -.8px; line-height: 1.3; }
+    .photo-coordinate { font-size: 9px; font-weight: 400; letter-spacing: 1.2px; padding-bottom: 4px; }
+    .hero-footnote { display: flex; justify-content: space-between; align-items: center; min-height: 68px; border-bottom: 1px solid var(--line); }
+    .hero-footnote .small-label { font-size: 8px; color: #76796f; letter-spacing: 1.2px; }
+    .hero-footnote .footnote-center { display: flex; gap: 10px; align-items: center; font-size: 10px; }
+    .hero-footnote .icon { width: 13px; height: 13px; }
+    .section { padding-top: 106px; padding-bottom: 106px; }
+    .section-heading { display: flex; justify-content: space-between; gap: 70px; align-items: end; margin-top: 26px; margin-bottom: 45px; }
+    .section-heading h2, .section-title { font-size: clamp(40px, 4.05vw, 65px); line-height: 1.12; letter-spacing: -.055em; }
+    .section-heading > p { color: var(--muted); max-width: 303px; font-size: 13px; line-height: 1.85; padding-bottom: 4px; }
+    .universes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .universe-card { display: block; min-width: 0; }
+    .card-visual { aspect-ratio: 1.38; position: relative; background: #eeeae3; overflow: hidden; border-radius: 3px; }
+    .card-visual > img { transition: transform 1s var(--ease); }
+    .universe-card:hover .card-visual > img { transform: scale(1.04); }
+    .card-tag { position: absolute; z-index: 2; top: 23px; left: 23px; padding: 9px 13px; border-radius: 30px; background: #ffffffec; font-size: 8px; font-weight: 500; letter-spacing: .6px; }
+    .card-number { position: absolute; right: 23px; top: 24px; font-size: 9px; color: #fff; letter-spacing: 1px; }
+    .card-arrow { position: absolute; bottom: 22px; right: 22px; z-index: 3; width: 43px; height: 43px; border: 0; color: var(--ink); background: #fff; }
+    .universe-card:hover .card-arrow { transform: rotate(45deg); background: var(--lime); }
+    .card-info { padding-top: 23px; }
+    .card-info .small-label { font-size: 9px; letter-spacing: 1.1px; color: #6a6e63; margin-bottom: 11px; }
+    .card-info h3 { font-size: clamp(20px, 1.85vw, 28px); line-height: 1.3; letter-spacing: -.8px; }
+    .card-info > p:not(.small-label) { font-size: 12px; line-height: 1.85; color: var(--muted); max-width: 430px; margin-top: 13px; }
+    .card-info .text-link { margin-top: 21px; font-size: 10px; }
+    .studio-art { background: #e7e6df; container-type: inline-size; }
+    .studio-art .card-tag { background: #ffffffd9; }
+    .browser-mock { width: 80%; position: absolute; left: 8%; top: 18%; background: #fff; border: 1px solid #d9d8d0; border-radius: 6px; transform: rotate(-5deg); box-shadow: 10px 20px 35px #373e2826; overflow: hidden; transition: transform .7s var(--ease); }
+    .universe-card:hover .browser-mock { transform: rotate(-3deg) translateY(-5px); }
+    .mock-toolbar { display: flex; align-items: center; gap: 3px; height: 21px; background: #f5f5f1; padding: 0 9px; border-bottom: 1px solid #e8e8e2; }
+    .mock-toolbar i { width: 4px; height: 4px; background: #d2d3cb; border-radius: 50%; }
+    .mock-toolbar > span { width: 55%; margin: auto; text-align: center; font-size: 5px; color: #96998f; letter-spacing: .3px; background: white; border-radius: 2px; padding: 3px; }
+    .mock-site { padding: 3cqw; background: #fbfaf7; }
+    .mock-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3cqw; }
+    .mock-logo { font-family: Georgia, serif; font-size: 4.6cqw; line-height: 1; letter-spacing: -.3cqw; }
+    .mock-nav > span:last-child { font-size: 1cqw; word-spacing: 2cqw; }
+    .mock-body { display: grid; grid-template-columns: 1fr 1.05fr; gap: 2.5cqw; }
+    .mock-words { padding-top: 2.8cqw; }
+    .mock-overline { font-size: .8cqw; letter-spacing: .17cqw; text-transform: uppercase; }
+    .mock-title { font-family: Georgia, serif; font-size: 6.2cqw; line-height: 1.08; letter-spacing: -.27cqw; margin-top: 2cqw; }
+    .mock-description { font-size: 1cqw; line-height: 1.6; width: 85%; margin-top: 2.4cqw; color: #747568; }
+    .mock-cta { display: inline-block; font-size: .85cqw; padding: 1.3cqw 1.9cqw; margin-top: 2.8cqw; background: #44493c; color: #fff; }
+    .mock-body > img { height: 37cqw; object-position: 45% center; }
+    .phone-mock { position: absolute; width: 21%; aspect-ratio: .48; right: 9%; bottom: 9%; background: #faf9f5; border: 4px solid #36392f; border-radius: 16px; box-shadow: 5px 14px 25px #373e2830; overflow: hidden; transform: rotate(7deg); }
+    .phone-notch { position: absolute; width: 36%; height: 7px; top: -1px; left: 32%; border-radius: 0 0 6px 6px; background: #36392f; z-index: 1; }
+    .phone-logo { padding: 12% 10% 6%; font-family: Georgia, serif; font-size: 3.5cqw; letter-spacing: -.2cqw; }
+    .phone-mock img { width: 84%; margin: 0 auto; height: 49%; }
+    .phone-title { font-family: Georgia, serif; font-size: 3cqw; line-height: 1.1; margin: 9% 9% 0; }
+    .universes-note { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 52px; color: #8a8c82; font-size: 10px; }
+    .universes-note .flower { height: 14px; width: 14px; }
+    .manifesto { background: var(--paper); }
+    .manifesto-top { display: flex; align-items: center; justify-content: space-between; }
+    .manifesto-top .small-label { color: #7b7f73; font-size: 9px; }
+    .manifesto-center { text-align: center; padding-top: 62px; }
+    .manifesto-flower { width: 55px; height: 55px; margin-bottom: 30px; }
+    .manifesto-center h2 { font-size: clamp(38px, 4.2vw, 67px); letter-spacing: -.055em; line-height: 1.16; }
+    .manifesto-center h2 span { color: #797e6d; }
+    .manifesto-center > p { max-width: 570px; margin: 27px auto 26px; font-size: 14px; color: #74796c; line-height: 1.9; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 76px; }
+    .value { padding-top: 22px; border-top: 1px solid #d9ddd0; }
+    .value-heading { display: flex; align-items: baseline; gap: 20px; margin-bottom: 11px; }
+    .value-heading > span { font-size: 9px; color: #8a8e82; }
+    .value h3 { font-size: 18px; letter-spacing: -.5px; }
+    .value > p { font-size: 11px; line-height: 1.9; color: #7a7f71; max-width: 280px; padding-left: 33px; }
+    .project-cta { padding-top: 111px; padding-bottom: 112px; }
+    .project-cta .eyebrow { color: var(--muted); }
+    .cta-heading { display: flex; align-items: center; justify-content: space-between; gap: 40px; margin-top: 30px; }
+    .cta-heading h2 { font-size: clamp(42px, 4.7vw, 76px); line-height: 1.12; letter-spacing: -.06em; }
+    .cta-orb { border: 0; background: var(--lime); width: 112px; height: 112px; margin-right: 6%; }
+    .cta-orb .icon { width: 37px; height: 37px; stroke-width: 1.1; }
+    .cta-orb:hover { background: var(--ink); color: var(--lime); transform: rotate(45deg); }
+    .cta-bottom { display: flex; align-items: center; gap: 28px; margin-top: 32px; }
+    .cta-bottom > p { font-size: 12px; color: var(--muted); }
+    .site-footer { border-top: 1px solid var(--line); background: #fff; }
+    .footer-top { padding-top: 48px; display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.2fr; gap: 38px; }
+    .footer-intro .flower { width: 29px; height: 29px; margin-bottom: 15px; }
+    .footer-intro p { font-size: 12px; line-height: 1.8; color: var(--muted); max-width: 230px; }
+    .footer-column .small-label { font-size: 8px; color: #8d9088; margin-bottom: 19px; }
+    .footer-column li + li { margin-top: 11px; }
+    .footer-column a, .footer-column button { font-size: 11px; border: 0; padding: 0; text-align: left; transition: color .2s; }
+    .footer-column a:hover, .footer-column button:hover { color: #719041; }
+    .footer-column .email-link { border-bottom: 1px solid #b9bcb1; padding-bottom: 5px; font-size: 12px; }
+    .footer-column .footer-location { display: flex; align-items: center; gap: 7px; font-size: 9px; color: #7f8278; margin-top: 23px; }
+    .footer-column .status-dot { width: 5px; height: 5px; }
+    .footer-wordmark { position: relative; font-family: var(--heading); font-size: clamp(30px, 10.8vw, 173px); font-weight: 650; letter-spacing: -.075em; line-height: 1; white-space: nowrap; margin-top: 61px; margin-bottom: 35px; }
+    .footer-wordmark sup { display: inline-block; font-family: var(--font); font-size: .16em; letter-spacing: 0; vertical-align: top; margin-top: .4em; margin-left: .2em; }
+    .footer-bottom { border-top: 1px solid var(--line); padding: 23px 0 27px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-bottom p { font-size: 9px; color: #8b8e84; }
+    .footer-legal { display: flex; gap: 25px; align-items: center; }
+    .footer-legal button { border: 0; padding: 0; font-size: 9px; color: #73786a; }
+    .back-top { display: flex; align-items: center; gap: 7px; }
+    .back-top .icon { width: 12px; height: 12px; }
+
+    /* Interior pages */
+    .page-hero { padding-top: 73px; padding-bottom: 65px; }
+    .page-hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: end; margin-top: 30px; }
+    .page-hero h1 { font-size: clamp(47px, 5.7vw, 91px); line-height: 1.1; letter-spacing: -.065em; }
+    .page-hero-copy { max-width: 340px; justify-self: end; padding-bottom: 5px; }
+    .page-hero-copy p { font-size: 14px; line-height: 1.9; color: var(--muted); }
+    .page-hero-copy .button { margin-top: 25px; }
+    .studio-showcase { height: 590px; margin-inline: 24px; background: #e7e6df; position: relative; display: grid; grid-template-columns: .65fr 1.35fr; align-items: center; overflow: hidden; border-radius: 3px; }
+    .showcase-caption { padding: 40px 0 40px 8%; margin-left: 9%; position: relative; z-index: 1; }
+    .showcase-caption .small-label { color: #797e70; font-size: 9px; }
+    .showcase-caption h2 { font-family: Georgia, serif; font-size: clamp(37px, 4.1vw, 65px); font-weight: 400; line-height: 1.1; letter-spacing: -2px; margin-top: 25px; }
+    .showcase-caption p { font-size: 12px; color: #727668; line-height: 1.8; max-width: 230px; margin-top: 24px; }
+    .showcase-art { position: relative; height: 100%; background: transparent; }
+    .showcase-art .browser-mock { top: 14%; }
+    .showcase-art .phone-mock { bottom: 7%; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 51px; }
+    .service { border-top: 1px solid var(--line); padding-top: 29px; }
+    .service > .icon { width: 28px; height: 28px; stroke-width: 1.1; margin-bottom: 30px; }
+    .service h3 { font-size: 22px; letter-spacing: -.7px; margin-bottom: 14px; }
+    .service p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+    .process-section { background: var(--paper); }
+    .process-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
+    .process-intro .section-title { margin-top: 27px; }
+    .process-intro > p { font-size: 13px; line-height: 1.9; color: var(--muted); max-width: 310px; margin-top: 25px; }
+    .process-list { padding-top: 8px; }
+    .process-item { display: grid; grid-template-columns: 35px 1fr; gap: 14px; padding: 26px 0; border-top: 1px solid #daddd3; }
+    .process-item > span { font-size: 10px; color: #8b9081; padding-top: 6px; }
+    .process-item h3 { font-size: 23px; letter-spacing: -.8px; }
+    .process-item p { font-size: 12px; color: var(--muted); line-height: 1.85; margin-top: 11px; }
+    .faq-layout { display: grid; grid-template-columns: 1fr 1.15fr; gap: 90px; }
+    .faq-layout h2 { margin-top: 27px; }
+    .faq-list details { border-bottom: 1px solid var(--line); }
+    .faq-list details:first-child { border-top: 1px solid var(--line); }
+    .faq-list summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 25px 0; font-size: 15px; font-weight: 500; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; font-size: 24px; font-weight: 400; transition: transform .25s; }
+    .faq-list details[open] summary::after { transform: rotate(45deg); }
+    .faq-list details p { color: var(--muted); font-size: 13px; line-height: 1.9; max-width: 500px; padding-bottom: 25px; }
+    .inner-cta { background: var(--paper); }
+    .wedding-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 650px; background: #f5f3ee; }
+    .wedding-hero-copy { padding: 80px 8% 75px calc(var(--gutter) + 2%); display: flex; flex-direction: column; align-items: start; justify-content: center; }
+    .wedding-hero-copy h1 { font-size: clamp(46px, 5.25vw, 81px); letter-spacing: -.06em; line-height: 1.08; margin-top: 33px; }
+    .wedding-hero-copy > p { font-size: 14px; line-height: 1.9; color: #7a7a6f; max-width: 345px; margin-top: 26px; }
+    .wedding-hero-copy .button { margin-top: 31px; }
+    .wedding-hero-photo { min-height: 580px; position: relative; }
+    .wedding-hero-photo > img { object-position: center; }
+    .wedding-hero-photo .small-label { position: absolute; bottom: 30px; left: 30px; color: white; padding: 9px 14px; background: #222a2040; backdrop-filter: blur(8px); border-radius: 30px; font-size: 9px; }
+    .wedding-intro { max-width: 790px; margin-inline: auto; text-align: center; }
+    .wedding-intro .eyebrow { justify-content: center; }
+    .wedding-intro .section-title { margin-top: 27px; }
+    .wedding-intro p { max-width: 535px; margin: 25px auto 0; font-size: 14px; color: var(--muted); line-height: 1.9; }
+    .wedding-values { margin-top: 65px; }
+    .about-photo { margin-inline: 24px; height: 540px; position: relative; overflow: hidden; border-radius: 3px; }
+    .about-photo img { object-position: center 55%; }
+    .about-photo .small-label { position: absolute; bottom: 28px; left: 32px; background: #fff; padding: 11px 15px; border-radius: 30px; font-size: 8px; }
+    .about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
+    .about-story h2 { margin-top: 27px; }
+    .about-story-copy { padding-top: 34px; }
+    .about-story-copy p { font-size: 16px; color: #6c7264; line-height: 1.95; }
+    .about-story-copy p + p { margin-top: 22px; }
+    .about-story-copy p:first-child { color: var(--ink); font-size: 20px; line-height: 1.65; }
+    .about-signature { display: flex; align-items: center; gap: 13px; margin-top: 32px; font-size: 11px; font-weight: 500; }
+    .about-signature .flower { width: 26px; height: 26px; }
+
+    /* Project request */
+    .request-page { padding-top: 63px; padding-bottom: 95px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: start; }
+    .request-intro { position: sticky; top: 145px; padding-top: 12px; }
+    .request-intro h1 { font-size: clamp(44px, 4.6vw, 72px); letter-spacing: -.06em; line-height: 1.12; margin-top: 28px; }
+    .request-intro > p { font-size: 14px; color: var(--muted); line-height: 1.9; max-width: 335px; margin-top: 27px; }
+    .request-assurance { border-top: 1px solid var(--line); margin-top: 39px; padding-top: 22px; max-width: 330px; }
+    .request-assurance p { display: flex; align-items: center; gap: 10px; font-size: 12px; margin-bottom: 13px; color: #6b7460; }
+    .request-assurance .icon { width: 15px; height: 15px; }
+    .request-email { margin-top: 38px; }
+    .request-email p { color: var(--muted); font-size: 11px; margin-bottom: 11px; }
+    .request-panel { background: var(--paper); padding: 37px; border-radius: 5px; }
+    .form-topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 27px; border-bottom: 1px solid #e0e3d9; margin-bottom: 27px; }
+    .form-topline span { font-size: 8px; letter-spacing: 1px; }
+    .form-topline span:last-child { color: #8b8f82; white-space: nowrap; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .field { margin-bottom: 22px; min-width: 0; }
+    .field label, .field legend { display: block; font-size: 11px; font-weight: 500; margin-bottom: 9px; padding: 0; }
+    .field label .optional { color: #8b8e83; font-size: 9px; font-weight: 400; }
+    input[type="text"], input[type="email"], select, textarea { width: 100%; background: white; border: 1px solid #e0e2d9; border-radius: 3px; color: var(--ink); padding: 13px 14px; font-size: 12px; line-height: 1.5; transition: border-color .2s, box-shadow .2s; }
+    input::placeholder, textarea::placeholder { color: #a1a49a; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #7c9659; box-shadow: 0 0 0 3px #bdd49426; }
+    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236f7665' stroke-width='1.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-position: right 13px center; background-repeat: no-repeat; padding-right: 34px; cursor: pointer; }
+    textarea { resize: vertical; min-height: 120px; }
+    fieldset.field { border: 0; padding: 0; }
+    .type-options { display: flex; flex-wrap: wrap; gap: 7px; }
+    .type-option { position: relative; }
+    .type-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .type-option label { margin: 0; padding: 10px 14px; background: #fff; border: 1px solid #dfe2d7; border-radius: 30px; font-size: 10px; font-weight: 400; cursor: pointer; transition: all .2s; }
+    .type-option input:checked + label { color: white; background: var(--ink); border-color: var(--ink); }
+    .type-option input:focus-visible + label { outline: 2px solid #7c9659; outline-offset: 3px; }
+    .field-helper { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; color: #8b8f82; font-size: 9px; }
+    .consent-label { display: flex; align-items: flex-start; gap: 10px; font-size: 10px; line-height: 1.7; color: #757b6c; cursor: pointer; }
+    .consent-label input { accent-color: #617d3e; margin: 3px 0 0; width: 14px; height: 14px; flex-shrink: 0; }
+    .consent-label button { font-size: inherit; border: none; padding: 0; text-decoration: underline; color: inherit; }
+    .form-submit { width: 100%; margin-top: 23px; justify-content: space-between; padding-inline: 22px; }
+    .form-note { font-size: 9px; color: #93978a; line-height: 1.7; text-align: center; max-width: 330px; margin: 13px auto 0; }
+    .confirmation { padding: 14px 0; }
+    .confirmation-mark { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--lime); margin-bottom: 26px; }
+    .confirmation-mark .icon { width: 27px; height: 27px; }
+    .confirmation h2 { font-size: 35px; letter-spacing: -1.5px; line-height: 1.2; }
+    .confirmation > p { font-size: 13px; line-height: 1.85; color: var(--muted); margin-top: 19px; }
+    .request-summary { margin: 26px 0; padding: 20px; background: #fff; border: 1px solid #e1e3d9; border-radius: 3px; }
+    .summary-row { display: flex; justify-content: space-between; gap: 18px; font-size: 11px; line-height: 1.7; }
+    .summary-row + .summary-row { margin-top: 10px; }
+    .summary-row dt { color: var(--muted); flex-shrink: 0; }
+    .summary-row dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+    .confirmation .button { width: 100%; justify-content: space-between; }
+    .confirmation-actions { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-top: 22px; }
+    .confirmation-actions button { border: none; font-size: 10px; padding: 0 0 5px; border-bottom: 1px solid #aeb6a3; }
+    .saved-note { font-size: 9px !important; }
+
+    /* Dialogs */
+    dialog { width: calc(100% - 36px); max-width: 560px; padding: 46px; border: none; border-radius: 8px; color: var(--ink); background: white; box-shadow: 0 30px 100px #0002; max-height: 85dvh; overflow-y: auto; }
+    dialog[open] { animation: dialogIn .3s var(--ease) both; }
+    @keyframes dialogIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+    dialog::backdrop { background: #1f281e55; backdrop-filter: blur(6px); }
+    .modal-close { width: 32px; height: 32px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--line); border-radius: 50%; position: absolute; right: 18px; top: 18px; }
+    .modal-close .icon { width: 15px; height: 15px; }
+    .modal-flower { width: 34px; height: 34px; margin-bottom: 26px; }
+    dialog h2 { font-size: 41px; letter-spacing: -2px; line-height: 1.15; }
+    dialog .modal-intro { color: var(--muted); font-size: 13px; line-height: 1.85; margin-top: 20px; }
+    .contact-choice { margin-top: 30px; padding: 22px; background: var(--paper); border-radius: 4px; }
+    .contact-choice h3 { font-size: 19px; letter-spacing: -.6px; }
+    .contact-choice p { font-size: 11px; color: var(--muted); margin: 10px 0 17px; line-height: 1.8; }
+    .contact-choice .text-link { font-size: 11px; }
+    .contact-email { display: flex; justify-content: space-between; align-items: center; gap: 14px; border-top: 1px solid var(--line); padding-top: 25px; margin-top: 27px; }
+    .contact-email span { display: block; font-size: 10px; color: var(--muted); margin-bottom: 7px; }
+    .contact-email a { font-size: 15px; letter-spacing: -.4px; }
+    .copy-email { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); }
+    .copy-email .icon { width: 15px; height: 15px; }
+    .legal-dialog h2 { font-size: 32px; padding-right: 25px; }
+    .legal-copy h3 { font-size: 16px; letter-spacing: -.3px; margin: 28px 0 10px; }
+    .legal-copy p { font-size: 12px; color: var(--muted); line-height: 1.85; margin-top: 13px; }
+    .legal-copy a { text-decoration: underline; }
+    .legal-copy .button { margin-top: 23px; font-size: 11px; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 15px); padding: 14px 22px; border-radius: 40px; background: var(--ink); color: white; font-size: 12px; z-index: 100; box-shadow: 0 8px 30px #0002; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; max-width: calc(100% - 36px); text-align: center; }
+    .toast.visible { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (min-width: 1700px) {
+      .hero-visual, .studio-showcase, .about-photo { max-width: 1700px; margin-inline: auto; }
+    }
+    @media (max-width: 1100px) {
+      .header-inner { gap: 24px; }
+      .desktop-nav { gap: 24px; }
+      .hero-title-row { grid-template-columns: 1fr 230px; gap: 20px; }
+      .hero-title { font-size: 6.6vw; }
+      .hero-copy p { font-size: 12px; }
+      .hero-copy { padding-bottom: 3px; }
+      .hero-location { font-size: 8px; }
+      .section-heading { gap: 45px; }
+      .section-heading > p { max-width: 270px; }
+      .request-page { gap: 45px; }
+      .request-panel { padding: 28px; }
+      .request-intro h1 { font-size: 5vw; }
+      .studio-showcase { height: 485px; }
+      .page-hero-grid { gap: 38px; }
+      .page-hero-copy { max-width: 280px; }
+      .process-layout, .faq-layout, .about-story { gap: 55px; }
+      .footer-top { grid-template-columns: 1.4fr .8fr .9fr 1.15fr; gap: 25px; }
+    }
+    @media (max-width: 800px) {
+      .site-header { height: 77px; }
+      .header-inner { grid-template-columns: 1fr auto; }
+      .desktop-nav { display: none; }
+      .menu-toggle { display: block; }
+      .brand-wordmark { font-size: 13px; }
+      .brand .flower { width: 31px; height: 31px; }
+      .nav-contact { font-size: 9px; padding: 12px 15px; gap: 15px; }
+      .hero-intro { padding-top: 43px; padding-bottom: 34px; }
+      .hero-title-row { grid-template-columns: 1fr; gap: 25px; }
+      .hero-title { font-size: 8.8vw; max-width: 730px; }
+      .hero-copy { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 0; }
+      .hero-copy p { font-size: 13px; max-width: 305px; }
+      .explore-link { margin: 0; white-space: nowrap; }
+      .hero-location { display: none; }
+      .hero-visual { height: 440px; margin-inline: 16px; }
+      .hero-photo-top { left: 25px; right: 25px; top: 23px; }
+      .hero-photo-bottom { left: 25px; right: 25px; bottom: 28px; }
+      .photo-story p { font-size: 23px; }
+      .photo-coordinate { font-size: 7px; }
+      .section { padding-top: 78px; padding-bottom: 78px; }
+      .section-heading { gap: 30px; }
+      .section-heading h2 { font-size: 40px; }
+      .section-heading > p { font-size: 12px; max-width: 255px; }
+      .universes-grid { gap: 20px; }
+      .card-visual { aspect-ratio: 1.12; }
+      .card-tag { font-size: 7px; top: 15px; left: 15px; padding: 8px 11px; }
+      .card-number { right: 15px; top: 20px; font-size: 8px; }
+      .card-arrow { width: 35px; height: 35px; right: 16px; bottom: 16px; }
+      .card-info h3 { font-size: 22px; }
+      .studio-art .browser-mock { top: 24%; }
+      .studio-art .phone-mock { bottom: 15%; }
+      .manifesto-center { padding-top: 47px; }
+      .manifesto-center h2 { font-size: 43px; }
+      .values-grid { gap: 25px; }
+      .value h3 { font-size: 17px; }
+      .value-heading { gap: 12px; }
+      .value > p { padding-left: 25px; }
+      .project-cta { padding-top: 78px; padding-bottom: 80px; }
+      .cta-heading h2 { font-size: 51px; }
+      .cta-orb { width: 85px; height: 85px; margin-right: 1%; }
+      .cta-orb .icon { width: 30px; height: 30px; }
+      .footer-top { grid-template-columns: 1.4fr 1fr 1fr; row-gap: 38px; }
+      .footer-contact { grid-column: 1 / -1; display: flex; align-items: center; gap: 30px; }
+      .footer-contact .small-label { margin-bottom: 0; }
+      .footer-contact .footer-location { margin: 0 0 0 auto; }
+      .footer-wordmark { margin-top: 45px; }
+      .footer-bottom { flex-wrap: wrap; }
+      .footer-legal { gap: 20px; }
+      .page-hero { padding-top: 52px; padding-bottom: 45px; }
+      .page-hero-grid { grid-template-columns: 1fr; gap: 27px; }
+      .page-hero h1 { font-size: 8vw; }
+      .page-hero-copy { justify-self: start; max-width: 500px; }
+      .page-hero-copy p { font-size: 13px; }
+      .studio-showcase { height: 380px; grid-template-columns: .65fr 1.35fr; margin-inline: 16px; }
+      .showcase-caption { margin-left: 5%; padding-left: 8%; }
+      .showcase-caption h2 { font-size: 38px; }
+      .showcase-caption p { font-size: 10px; }
+      .showcase-art .browser-mock { top: 24%; }
+      .showcase-art .phone-mock { bottom: 15%; }
+      .services-grid { gap: 26px; }
+      .service h3 { font-size: 20px; }
+      .service p { font-size: 12px; }
+      .process-layout, .faq-layout { grid-template-columns: 1fr; gap: 40px; }
+      .process-intro > p { max-width: 420px; }
+      .wedding-hero { min-height: 520px; }
+      .wedding-hero-copy { padding: 55px 8% 55px var(--gutter); }
+      .wedding-hero-copy h1 { font-size: 6vw; margin-top: 23px; }
+      .wedding-hero-copy > p { font-size: 12px; margin-top: 20px; }
+      .wedding-hero-copy .button { font-size: 10px; padding: 15px 20px; gap: 15px; }
+      .wedding-hero-photo { min-height: 510px; }
+      .about-photo { margin-inline: 16px; height: 420px; }
+      .about-story { gap: 35px; }
+      .about-story-copy { padding-top: 29px; }
+      .about-story-copy p { font-size: 13px; }
+      .about-story-copy p:first-child { font-size: 17px; }
+      .request-page { grid-template-columns: 1fr; gap: 38px; padding-top: 39px; padding-bottom: 64px; }
+      .request-intro { position: static; }
+      .request-intro h1 { font-size: 56px; }
+      .request-intro > p { max-width: 440px; }
+      .request-assurance { display: flex; flex-wrap: wrap; gap: 14px 25px; max-width: none; margin-top: 24px; padding-top: 19px; }
+      .request-assurance p { font-size: 10px; margin: 0; }
+      .request-email { display: none; }
+      .request-panel { padding: 33px; }
+    }
+    @media (max-width: 550px) {
+      :root { --gutter: 23px; }
+      html { scroll-padding-top: 95px; }
+      .site-header { height: 73px; }
+      .header-inner { gap: 10px; }
+      .header-actions { gap: 12px; }
+      .nav-contact { padding: 11px 13px; font-size: 9px; gap: 12px; }
+      .nav-contact .contact-phrase { display: none; }
+      .nav-contact .contact-mobile { display: inline !important; }
+      .brand { gap: 9px; }
+      .brand-wordmark { font-size: 12px; }
+      .brand .flower { width: 28px; height: 28px; }
+      .hero-intro { padding-top: 36px; padding-bottom: 29px; }
+      .hero-overline { margin-bottom: 24px; }
+      .eyebrow { font-size: 8px; letter-spacing: 1.15px; gap: 8px; }
+      .status-dot { width: 6px; height: 6px; }
+      .hero-title { font-size: 10.9vw; letter-spacing: -.06em; line-height: 1.12; }
+      .hero-title-row { gap: 22px; }
+      .hero-copy { display: block; }
+      .hero-copy p { font-size: 12px; max-width: 290px; line-height: 1.85; }
+      .explore-link { margin-top: 20px; font-size: 10px; gap: 15px; }
+      .explore-link .round-arrow { width: 29px; height: 29px; }
+      .hero-visual { height: 380px; margin-inline: 12px; }
+      .hero-visual > img { object-position: 53% center; }
+      .hero-photo-top { top: 19px; left: 19px; right: 19px; }
+      .hero-photo-top .small-label { font-size: 6px; letter-spacing: 1.1px; }
+      .photo-explore { width: 31px; height: 31px; }
+      .photo-explore .icon { width: 14px; height: 14px; }
+      .hero-photo-bottom { left: 20px; bottom: 24px; right: 20px; }
+      .photo-story { gap: 14px; }
+      .photo-story .flower { width: 32px; height: 32px; }
+      .photo-story p { font-size: 21px; letter-spacing: -.7px; }
+      .photo-coordinate { display: none; }
+      .hero-footnote { min-height: 54px; }
+      .hero-footnote .small-label { font-size: 6px; letter-spacing: .65px; }
+      .hero-footnote .footnote-center { display: none; }
+      .section { padding-top: 66px; padding-bottom: 66px; }
+      .section-heading { display: block; margin-top: 21px; margin-bottom: 30px; }
+      .section-heading h2, .section-title { font-size: 38px; letter-spacing: -.055em; }
+      .section-heading > p { margin-top: 21px; max-width: 295px; padding: 0; }
+      .universes-grid { grid-template-columns: 1fr; gap: 39px; }
+      .card-visual { aspect-ratio: 1.22; }
+      .card-tag { font-size: 7px; top: 19px; left: 19px; }
+      .card-number { top: 22px; right: 20px; }
+      .card-arrow { width: 39px; height: 39px; right: 19px; bottom: 19px; }
+      .card-info { padding-top: 19px; }
+      .card-info .small-label { font-size: 8px; margin-bottom: 9px; }
+      .card-info h3 { font-size: 23px; }
+      .card-info > p:not(.small-label) { font-size: 12px; margin-top: 11px; }
+      .card-info .text-link { margin-top: 15px; }
+      .studio-art .browser-mock { top: 23%; }
+      .studio-art .phone-mock { bottom: 12%; }
+      .universes-note { font-size: 8px; gap: 7px; margin-top: 36px; }
+      .universes-note .flower { height: 12px; width: 12px; }
+      .manifesto-top .small-label { font-size: 7px; letter-spacing: .8px; }
+      .manifesto-top .small-label:last-child { font-size: 6px; }
+      .manifesto-center { padding-top: 42px; }
+      .manifesto-flower { width: 42px; height: 42px; margin-bottom: 25px; }
+      .manifesto-center h2 { font-size: 34px; line-height: 1.2; }
+      .manifesto-center h2 br { display: none; }
+      .manifesto-center > p { font-size: 12px; line-height: 1.95; margin-top: 21px; }
+      .manifesto-center .text-link { font-size: 11px; }
+      .values-grid { grid-template-columns: 1fr; margin-top: 44px; gap: 24px; }
+      .value { padding-top: 18px; }
+      .value-heading { gap: 16px; margin-bottom: 8px; }
+      .value > p { max-width: none; padding-left: 29px; font-size: 11px; }
+      .project-cta { padding-top: 68px; padding-bottom: 67px; }
+      .cta-heading { margin-top: 25px; gap: 15px; }
+      .cta-heading h2 { font-size: 35px; line-height: 1.15; }
+      .cta-orb { width: 60px; height: 60px; margin: 0; }
+      .cta-orb .icon { width: 25px; height: 25px; }
+      .cta-bottom { margin-top: 27px; display: block; }
+      .cta-bottom .button { font-size: 10px; padding: 15px 21px; }
+      .cta-bottom > p { font-size: 10px; margin-top: 16px; }
+      .footer-top { padding-top: 34px; grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+      .footer-intro { grid-column: 1 / -1; display: flex; gap: 16px; align-items: center; }
+      .footer-intro .flower { margin: 0; width: 31px; height: 31px; }
+      .footer-intro p { font-size: 11px; max-width: 250px; }
+      .footer-column .small-label { margin-bottom: 15px; }
+      .footer-column a, .footer-column button { font-size: 11px; }
+      .footer-contact { display: block; }
+      .footer-contact .small-label { margin-bottom: 14px; }
+      .footer-contact .footer-location { margin-top: 15px; font-size: 8px; }
+      .footer-wordmark { font-size: 10.45vw; margin-top: 35px; margin-bottom: 26px; letter-spacing: -.07em; }
+      .footer-bottom { display: block; padding: 20px 0 25px; }
+      .footer-bottom > p { font-size: 8px; }
+      .footer-legal { margin-top: 18px; justify-content: space-between; gap: 12px; }
+      .footer-legal button { font-size: 8px; }
+      .page-hero { padding-top: 39px; padding-bottom: 36px; }
+      .page-hero-grid { margin-top: 23px; gap: 22px; }
+      .page-hero h1 { font-size: 11vw; }
+      .page-hero-copy p { font-size: 12px; }
+      .page-hero-copy .button { font-size: 11px; margin-top: 22px; }
+      .studio-showcase { margin-inline: 12px; height: auto; display: block; padding-top: 29px; }
+      .showcase-caption { margin-left: 0; padding: 0 27px; }
+      .showcase-caption h2 { font-size: 37px; margin-top: 15px; }
+      .showcase-caption h2 br { display: none; }
+      .showcase-caption p { max-width: 275px; font-size: 11px; margin-top: 14px; }
+      .showcase-caption .small-label { font-size: 7px; }
+      .showcase-art { height: 350px; }
+      .showcase-art .browser-mock { top: 13%; }
+      .showcase-art .phone-mock { bottom: 12%; }
+      .services-grid { grid-template-columns: 1fr; gap: 31px; margin-top: 34px; }
+      .service { padding-top: 23px; }
+      .service > .icon { margin-bottom: 18px; width: 25px; height: 25px; }
+      .service h3 { font-size: 23px; margin-bottom: 12px; }
+      .service p { max-width: 330px; }
+      .process-layout, .faq-layout { gap: 29px; }
+      .process-intro .section-title, .faq-layout h2 { margin-top: 22px; }
+      .process-item { padding: 23px 0; grid-template-columns: 25px 1fr; }
+      .process-item h3 { font-size: 21px; }
+      .process-item p { font-size: 12px; }
+      .faq-list summary { font-size: 13px; padding: 21px 0; }
+      .faq-list details p { font-size: 12px; }
+      .wedding-hero { grid-template-columns: 1fr; }
+      .wedding-hero-copy { padding: 43px var(--gutter); }
+      .wedding-hero-copy h1 { font-size: 13vw; margin-top: 25px; }
+      .wedding-hero-copy > p { max-width: 310px; }
+      .wedding-hero-photo { min-height: 0; height: 390px; }
+      .wedding-hero-photo .small-label { bottom: 22px; left: 23px; font-size: 7px; }
+      .wedding-intro .section-title { margin-top: 24px; }
+      .wedding-intro p { font-size: 12px; }
+      .wedding-values { margin-top: 37px; }
+      .about-photo { height: 330px; margin-inline: 12px; }
+      .about-photo .small-label { font-size: 7px; left: 20px; bottom: 21px; }
+      .about-story { grid-template-columns: 1fr; gap: 24px; }
+      .about-story-copy { padding-top: 0; }
+      .about-story-copy p { font-size: 13px; }
+      .about-story-copy p:first-child { font-size: 18px; }
+      .request-page { padding-top: 29px; }
+      .request-intro h1 { font-size: 12vw; margin-top: 23px; }
+      .request-intro > p { font-size: 12px; margin-top: 22px; }
+      .request-assurance { gap: 13px 20px; }
+      .request-assurance p { font-size: 9px; gap: 7px; }
+      .request-panel { padding: 24px 20px; margin-inline: -7px; }
+      .form-topline { padding-bottom: 20px; margin-bottom: 24px; gap: 12px; }
+      .form-topline span { font-size: 6.8px; letter-spacing: .75px; }
+      .form-row { gap: 13px; }
+      input[type="text"], input[type="email"], select, textarea { font-size: 16px; padding: 11px; }
+      input::placeholder, textarea::placeholder { font-size: 12px; }
+      select { font-size: 12px; padding-right: 30px; min-height: 47px; }
+      .field label, .field legend { font-size: 10px; }
+      .type-option label { font-size: 9px; padding: 9px 12px; }
+      .consent-label { font-size: 9px; }
+      .form-submit { font-size: 11px; padding: 16px 21px; }
+      .form-note { font-size: 8px; }
+      .confirmation h2 { font-size: 30px; }
+      .confirmation > p { font-size: 12px; }
+      dialog { padding: 36px 25px; }
+      dialog h2 { font-size: 35px; }
+      .modal-flower { margin-bottom: 22px; }
+      .contact-choice { padding: 20px; }
+      .contact-email a { font-size: 14px; }
+      .legal-dialog h2 { font-size: 28px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; animation-iteration-count: 1 !important; }
+      .will-reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4m-6 6 6-6 6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/></symbol>
+    <symbol id="i-screen" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4M2 7h20"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3C9 2 3 7 4 14c1 6 9 7 13 2 3-4 3-8 3-13ZM3 22 15 9"/></symbol>
+    <symbol id="i-flower" viewBox="0 0 48 48">
+      <ellipse cx="24" cy="24" rx="5.5" ry="22"/>
+      <ellipse cx="24" cy="24" rx="5.5" ry="22" transform="rotate(45 24 24)"/>
+      <ellipse cx="24" cy="24" rx="5.5" ry="22" transform="rotate(90 24 24)"/>
+      <ellipse cx="24" cy="24" rx="5.5" ry="22" transform="rotate(135 24 24)"/>
+    </symbol>
+  </svg>
+
+  <a href="#main-content" class="skip-link">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a href="/" data-route="/" class="brand" aria-label="LE MONDE AIME, accueil">
+        <svg class="flower" aria-hidden="true"><use href="#i-flower"/></svg>
+        <span class="brand-wordmark"><span>LE MONDE</span><span>AIME<sup>®</sup></span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <a class="nav-link" href="/" data-route="/" data-nav="/" aria-current="page">Accueil</a>
+        <a class="nav-link" href="/mariage" data-route="/mariage" data-nav="/mariage">Mariage</a>
+        <a class="nav-link" href="/studio" data-route="/studio" data-nav="/studio">Studio</a>
+        <a class="nav-link" href="/a-propos" data-route="/a-propos" data-nav="/a-propos">À propos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="button button-dark nav-contact" data-dialog="contact">
+          <span class="contact-phrase">Parlons de votre projet</span><span class="contact-mobile" style="display:none">Contact</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </button>
+        <button class="menu-toggle" aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden>
+      <a href="/" data-route="/">Accueil</a>
+      <a href="/mariage" data-route="/mariage">Aime Mariage</a>
+      <a href="/studio" data-route="/studio">Aime Studio</a>
+      <a href="/a-propos" data-route="/a-propos">À propos</a>
+      <a href="/demande-site" class="mobile-project" data-route="/demande-site">Créons votre site ensemble ↗</a>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-intro">
+          <svg class="flower" aria-hidden="true"><use href="#i-flower"/></svg>
+          <p>Des expériences digitales.<br>Un supplément d’âme.</p>
+        </div>
+        <div class="footer-column">
+          <p class="small-label">Faire connaissance</p>
+          <ul>
+            <li><a href="/" data-route="/">Accueil</a></li>
+            <li><a href="/a-propos" data-route="/a-propos">À propos</a></li>
+            <li><button data-dialog="contact">Nous contacter</button></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <p class="small-label">Nos univers</p>
+          <ul>
+            <li><a href="/mariage" data-route="/mariage">Aime Mariage <span aria-hidden="true">↗</span></a></li>
+            <li><a href="/studio" data-route="/studio">Aime Studio <span aria-hidden="true">↗</span></a></li>
+            <li><a href="/demande-site" data-route="/demande-site">Créer mon site</a></li>
+          </ul>
+        </div>
+        <div class="footer-column footer-contact">
+          <p class="small-label">Les belles idées commencent ici</p>
+          <a href="mailto:bonjour@lemondeaime.fr" class="email-link">bonjour@lemondeaime.fr</a>
+          <p class="footer-location"><span class="status-dot"></span>Indépendant. Créatif. Basé en France.</p>
+        </div>
+      </div>
+      <div class="footer-wordmark" aria-label="Le Monde Aime, marque déposée">LE MONDE AIME<sup>®</sup></div>
+      <div class="footer-bottom">
+        <p>© <span id="copyright-year">2026</span> LE MONDE AIME®. Tous droits réservés.</p>
+        <div class="footer-legal">
+          <button data-dialog="legal">Mentions légales</button>
+          <button data-dialog="privacy">Confidentialité</button>
+          <button class="back-top" data-action="top">Tout là-haut <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <template id="page-home">
+    <div class="page-enter">
+      <section aria-labelledby="home-title">
+        <div class="hero-intro wrap">
+          <div class="hero-overline">
+            <p class="eyebrow"><span class="status-dot"></span>Une autre idée du digital</p>
+            <p class="hero-location">CRÉATION INDÉPENDANTE · FRANCE</p>
+          </div>
+          <div class="hero-title-row">
+            <h1 class="hero-title" id="home-title"><span>Le digital, oui.</span><span>L’émotion, surtout.</span></h1>
+            <div class="hero-copy">
+              <p>Nous créons des expériences digitales simples, intelligentes et profondément humaines.</p>
+              <a href="#univers" data-scroll="univers" class="explore-link">Explorer nos univers <span class="round-arrow"><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=2000&q=85" srcset="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=900&q=85 900w, https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=2000&q=85 2000w" sizes="100vw" alt="L’océan rejoint une côte sauvage, baignée par la lumière douce du soleil." fetchpriority="high" decoding="async">
+          <div class="hero-photo-top">
+            <span class="small-label">De nouveaux horizons, ensemble.</span>
+            <a href="#univers" data-scroll="univers" class="round-arrow photo-explore" aria-label="Découvrir nos deux univers"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="hero-photo-bottom">
+            <div class="photo-story">
+              <svg class="flower" aria-hidden="true"><use href="#i-flower"/></svg>
+              <p>On a tous une belle<br>histoire à créer.</p>
+            </div>
+            <span class="photo-coordinate">LE MONDE EST UN TERRAIN DE CRÉATION.</span>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="hero-footnote">
+            <span class="small-label">La créativité pour point de départ.</span>
+            <a href="#univers" data-scroll="univers" class="footnote-center">La suite, juste ici <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+            <span class="small-label">L’humain pour horizon.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" id="univers" aria-labelledby="univers-title">
+        <p class="eyebrow muted" data-reveal>01 / Nos univers</p>
+        <div class="section-heading" data-reveal>
+          <h2 id="univers-title">Deux univers.<br>Une même vision.</h2>
+          <p>Accompagner les moments qui comptent.<br>Donner vie aux idées qui vous ressemblent.<br>Toujours avec la même attention.</p>
+        </div>
+        <div class="universes-grid">
+          <a href="/mariage" data-route="/mariage" class="universe-card" data-reveal>
+            <div class="card-visual">
+              <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85" alt="Une table de mariage élégante, fleurie et prête à accueillir les invités." loading="lazy" decoding="async">
+              <span class="card-tag">POUR LES BELLES HISTOIRES</span>
+              <span class="card-number">01 — 02</span>
+              <span class="round-arrow card-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+            <div class="card-info">
+              <p class="small-label">Aime Mariage</p>
+              <h3>Le grand jour. L’esprit léger.</h3>
+              <p>Une expérience digitale pensée pour préparer votre mariage, partager l’essentiel et profiter de chaque instant.</p>
+              <span class="text-link">Découvrir Aime Mariage <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+          </a>
+          <a href="/studio" data-route="/studio" class="universe-card" data-reveal>
+            <div class="card-visual studio-art" role="img" aria-label="Maquette d’un site d’architecture sur mesure, présentée sur ordinateur et mobile.">
+              <span class="card-tag">POUR LES IDÉES QUI AVANCENT</span>
+              <div class="browser-mock" aria-hidden="true">
+                <div class="mock-toolbar"><i></i><i></i><i></i><span>ora-architecture.fr</span></div>
+                <div class="mock-site">
+                  <div class="mock-nav"><span class="mock-logo">ōra.</span><span>Studio Projets Contact ↗</span></div>
+                  <div class="mock-body">
+                    <div class="mock-words">
+                      <p class="mock-overline">Architecture & intérieurs</p>
+                      <p class="mock-title">Habiter<br>l’essentiel.</p>
+                      <p class="mock-description">Des lieux singuliers.<br>Une autre façon de vivre l’espace.</p>
+                      <span class="mock-cta">Découvrir nos projets &nbsp; ↗</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy" decoding="async">
+                  </div>
+                </div>
+              </div>
+              <div class="phone-mock" aria-hidden="true">
+                <div class="phone-notch"></div><div class="phone-logo">ōra.</div>
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" decoding="async">
+                <p class="phone-title">Habiter<br>l’essentiel.</p>
+              </div>
+              <span class="round-arrow card-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+            <div class="card-info">
+              <p class="small-label">Aime Studio</p>
+              <h3>Votre singularité, en version digitale.</h3>
+              <p>Des sites Internet sur mesure pour les entrepreneurs, les indépendants et tous ceux qui ont quelque chose à faire rayonner.</p>
+              <span class="text-link">Découvrir Aime Studio <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+          </a>
+        </div>
+        <p class="universes-note"><svg class="flower" aria-hidden="true"><use href="#i-flower"/></svg>Deux façons de créer. Une même attention aux détails.</p>
+      </section>
+
+      <section class="manifesto section" aria-labelledby="manifesto-title">
+        <div class="wrap">
+          <div class="manifesto-top"><p class="small-label">02 / Notre manifeste</p><p class="small-label">( Ce qui nous anime )</p></div>
+          <div class="manifesto-center" data-reveal>
+            <svg class="flower manifesto-flower" aria-hidden="true"><use href="#i-flower"/></svg>
+            <h2 id="manifesto-title">La technologie est belle<br>quand <span>elle nous rapproche.</span></h2>
+            <p>Nous croyons aux expériences que l’on comprend d’instinct. À la beauté utile. Aux idées ambitieuses qui gardent les pieds sur terre. Et à un digital qui laisse toute sa place à l’humain.</p>
+            <a href="/a-propos" data-route="/a-propos" class="text-link">Un peu plus sur nous <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="values-grid" data-reveal>
+            <div class="value"><div class="value-heading"><span>01</span><h3>Simple, par nature.</h3></div><p>Enlever le superflu pour laisser toute la place à ce qui compte vraiment.</p></div>
+            <div class="value"><div class="value-heading"><span>02</span><h3>Juste, dans les détails.</h3></div><p>Associer le beau et l’utile. Penser chaque interaction avec intention.</p></div>
+            <div class="value"><div class="value-heading"><span>03</span><h3>Humain, avant tout.</h3></div><p>Écouter les envies, comprendre les histoires et créer de vraies connexions.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-cta wrap" data-reveal>
+        <p class="eyebrow">Le prochain chapitre commence avec vous</p>
+        <div class="cta-heading">
+          <h2>Et si on créait<br>la suite, ensemble ?</h2>
+          <button class="round-arrow cta-orb" data-dialog="contact" aria-label="Parlons de votre projet"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="cta-bottom">
+          <button class="button button-dark" data-dialog="contact">Parlons de votre projet <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p>Une idée, une envie ou simplement une question.</p>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <template id="page-studio">
+    <div class="page-enter">
+      <section class="page-hero wrap">
+        <p class="eyebrow"><span class="status-dot"></span>Aime Studio · Sur mesure, par nature</p>
+        <div class="page-hero-grid">
+          <h1>Votre idée mérite<br>un site à sa hauteur.</h1>
+          <div class="page-hero-copy">
+            <p>Vous avez votre vision. Nous avons l’envie de lui donner vie. Des sites singuliers, intuitifs et soignés, pour les professionnels qui font les choses à leur façon.</p>
+            <a href="/demande-site" data-route="/demande-site" class="button button-dark">Créons votre site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </section>
+      <div class="studio-showcase">
+        <div class="showcase-caption">
+          <p class="small-label">Une idée. Mille possibilités.</p>
+          <h2>Le beau.<br>Le juste.<br>Le vôtre.</h2>
+          <p>Une direction artistique pensée pour votre identité, jusque dans le moindre détail.</p>
+        </div>
+        <div class="studio-art showcase-art" role="img" aria-label="Concept de site pour un studio d’architecture, adapté à l’ordinateur et au mobile.">
+          <div class="browser-mock" aria-hidden="true">
+            <div class="mock-toolbar"><i></i><i></i><i></i><span>ora-architecture.fr — concept de design</span></div>
+            <div class="mock-site">
+              <div class="mock-nav"><span class="mock-logo">ōra.</span><span>Studio Projets Contact ↗</span></div>
+              <div class="mock-body">
+                <div class="mock-words"><p class="mock-overline">Architecture & intérieurs</p><p class="mock-title">Habiter<br>l’essentiel.</p><p class="mock-description">Des lieux singuliers.<br>Une autre façon de vivre l’espace.</p><span class="mock-cta">Découvrir nos projets &nbsp; ↗</span></div>
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=85" alt="" decoding="async">
+              </div>
+            </div>
+          </div>
+          <div class="phone-mock" aria-hidden="true"><div class="phone-notch"></div><div class="phone-logo">ōra.</div><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=300&q=80" alt="" decoding="async"><p class="phone-title">Habiter<br>l’essentiel.</p></div>
+        </div>
+      </div>
+      <section class="section wrap">
+        <p class="eyebrow muted">01 / Une présence à part</p>
+        <div class="section-heading" data-reveal><h2>Pas un site de plus.<br>Votre site, vraiment.</h2><p>Artiste, indépendant, entrepreneur ou entreprise : votre différence mérite mieux qu’une solution standard.</p></div>
+        <div class="services-grid" data-reveal>
+          <div class="service"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg><h3>Une identité juste.</h3><p>Une direction artistique sur mesure, des mots qui vous ressemblent et un univers visuel qui donne envie de vous connaître.</p></div>
+          <div class="service"><svg class="icon" aria-hidden="true"><use href="#i-screen"/></svg><h3>Une expérience fluide.</h3><p>Une navigation évidente, un affichage soigné sur tous les écrans et des parcours pensés pour vos visiteurs.</p></div>
+          <div class="service"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><h3>Un site qui dure.</h3><p>Des fondations simples, une attention portée aux performances et une prise en main adaptée à votre quotidien.</p></div>
+        </div>
+      </section>
+      <section class="process-section section">
+        <div class="wrap process-layout">
+          <div class="process-intro" data-reveal><p class="eyebrow muted">02 / Faire simple, ensemble</p><h2 class="section-title">De la première idée<br>au premier clic.</h2><p>Un échange direct. Des étapes claires. Et la même attention, du début à la mise en ligne.</p></div>
+          <div class="process-list" data-reveal>
+            <div class="process-item"><span>01</span><div><h3>On se rencontre.</h3><p>Vos envies, votre activité, vos objectifs. On commence par vous écouter et définir les contours du projet.</p></div></div>
+            <div class="process-item"><span>02</span><div><h3>On imagine.</h3><p>Structure, contenus, direction artistique : votre futur site prend forme, avec vos retours à chaque étape.</p></div></div>
+            <div class="process-item"><span>03</span><div><h3>On crée.</h3><p>On développe, on affine, on teste. Sur mobile comme sur grand écran, rien n’est laissé au hasard.</p></div></div>
+            <div class="process-item"><span>04</span><div><h3>Vous prenez votre envol.</h3><p>Votre site est en ligne. Nous vous accompagnons dans sa prise en main et préparons ensemble la suite.</p></div></div>
+          </div>
+        </div>
+      </section>
+      <section class="section wrap faq-layout">
+        <div data-reveal><p class="eyebrow muted">03 / Tout simplement</p><h2 class="section-title">Quelques questions.<br>Des réponses claires.</h2></div>
+        <div class="faq-list" data-reveal>
+          <details><summary>À qui s’adresse Aime Studio ?</summary><p>Aux entrepreneurs, indépendants, artistes, associations et entreprises qui souhaitent un site vitrine ou un portfolio personnalisé. Nous vous accompagnons aussi pour repenser un site existant.</p></details>
+          <details><summary>Quel budget prévoir pour mon site ?</summary><p>Chaque projet est différent. Le budget dépend du nombre de pages, des contenus et des fonctionnalités nécessaires. Après un premier échange, vous recevez une proposition détaillée, sans engagement.</p></details>
+          <details><summary>Combien de temps prend la création ?</summary><p>Nous définissons un calendrier réaliste ensemble, en fonction de l’ampleur du projet et de la disponibilité de vos contenus. Les étapes et les temps de validation sont précisés avant le démarrage.</p></details>
+          <details><summary>Pourrai-je faire évoluer mon site ?</summary><p>Oui. Nous choisissons les outils selon vos besoins et votre niveau d’autonomie. La gestion des contenus, l’hébergement et l’accompagnement après la mise en ligne sont définis dans votre proposition.</p></details>
+        </div>
+      </section>
+      <section class="inner-cta">
+        <div class="project-cta wrap">
+          <p class="eyebrow">Votre projet commence ici</p>
+          <div class="cta-heading"><h2>Une idée en tête ?<br>Donnons-lui vie.</h2><a href="/demande-site" data-route="/demande-site" class="round-arrow cta-orb" aria-label="Créer mon site"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+          <div class="cta-bottom"><a href="/demande-site" data-route="/demande-site" class="button button-dark">Créer mon site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><p>Quelques mots suffisent pour commencer.</p></div>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <template id="page-mariage">
+    <div class="page-enter">
+      <section class="wedding-hero">
+        <div class="wedding-hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span>Aime Mariage · Les belles histoires</p>
+          <h1>Votre histoire.<br>Votre grand jour.<br>Simplement.</h1>
+          <p>Moins de questions à organiser. Plus de moments à savourer. Une expérience digitale délicate, pensée autour de vous et de ceux que vous aimez.</p>
+          <a href="#experience-mariage" data-scroll="experience-mariage" class="button button-dark">Découvrir l’expérience <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+        </div>
+        <div class="wedding-hero-photo">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=85" alt="Un décor de réception de mariage élégant, entre fleurs et lumière naturelle." fetchpriority="high" decoding="async">
+          <span class="small-label">Tout commence par un oui.</span>
+        </div>
+      </section>
+      <section class="section wrap" id="experience-mariage">
+        <div class="wedding-intro" data-reveal><p class="eyebrow muted">Pensé pour vous. Partagé avec eux.</p><h2 class="section-title">L’essentiel au même endroit.<br>La magie, partout ailleurs.</h2><p>Votre mariage est unique. Sa préparation peut être simple. Aime Mariage imagine un fil digital entre vous et vos invités, pour partager votre univers et les informations qui comptent.</p></div>
+        <div class="services-grid wedding-values" data-reveal>
+          <div class="service"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg><h3>Une invitation à votre image.</h3><p>Une présence en ligne qui raconte votre histoire, reflète l’ambiance de votre mariage et donne le ton de cette belle journée.</p></div>
+          <div class="service"><svg class="icon" aria-hidden="true"><use href="#i-screen"/></svg><h3>Les bons repères.</h3><p>Le programme, les lieux, les hébergements et les informations pratiques, réunis dans un espace facile à consulter sur mobile.</p></div>
+          <div class="service"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><h3>De l’espace pour l’émotion.</h3><p>Moins d’informations dispersées, moins de messages répétés. Et un peu plus de temps pour vivre pleinement les préparatifs.</p></div>
+        </div>
+      </section>
+      <section class="manifesto section">
+        <div class="wrap manifesto-center" style="padding-top:0" data-reveal>
+          <svg class="flower manifesto-flower" aria-hidden="true"><use href="#i-flower"/></svg>
+          <h2>Les plus beaux souvenirs<br><span>se vivent, tout simplement.</span></h2>
+          <p>Pas une plateforme de plus à gérer. Une expérience claire et personnelle qui accompagne votre mariage, sans jamais prendre la place de l’essentiel.</p>
+          <button class="text-link" data-dialog="contact">Parlons de votre mariage <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </section>
+      <section class="project-cta wrap">
+        <p class="eyebrow">Pour votre prochain grand oui</p>
+        <div class="cta-heading"><h2>Une belle journée.<br>Votre premier pas.</h2><a href="mailto:bonjour@lemondeaime.fr?subject=Notre%20projet%20de%20mariage" class="round-arrow cta-orb" aria-label="Nous parler de votre mariage par e-mail"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        <div class="cta-bottom"><a href="mailto:bonjour@lemondeaime.fr?subject=Notre%20projet%20de%20mariage" class="button button-dark">Racontez-nous votre histoire <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><p>On s’occupe de la suite, ensemble.</p></div>
+      </section>
+    </div>
+  </template>
+
+  <template id="page-about">
+    <div class="page-enter">
+      <section class="page-hero wrap">
+        <p class="eyebrow"><span class="status-dot"></span>LE MONDE AIME® · Studio indépendant</p>
+        <div class="page-hero-grid">
+          <h1>Derrière le digital,<br>une idée de l’humain.</h1>
+          <div class="page-hero-copy"><p>Nous sommes un studio indépendant de création et d’innovation numérique. Notre envie : faire naître des expériences qui ont autant de sens que de sensibilité.</p></div>
+        </div>
+      </section>
+      <div class="about-photo"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85" alt="Un espace de création ouvert et lumineux, entre matériaux naturels et plantes." fetchpriority="high" decoding="async"><span class="small-label">De l’espace pour les idées.</span></div>
+      <section class="section wrap about-story">
+        <div data-reveal><p class="eyebrow muted">01 / Une conviction, d’abord</p><h2 class="section-title">Créer du beau.<br>Et surtout,<br>créer du lien.</h2></div>
+        <div class="about-story-copy" data-reveal>
+          <p>Le numérique peut faire beaucoup. Nous préférons qu’il fasse juste.</p>
+          <p>LE MONDE AIME est né d’une envie simple : réconcilier la technologie et l’émotion. Imaginer des expériences que l’on aime utiliser, qui facilitent la vie et donnent aux idées la place qu’elles méritent.</p>
+          <p>Nous croisons design, développement et curiosité pour construire des projets à taille humaine. Sans jargon inutile. Sans complexité ajoutée. Avec une attention sincère portée à chaque histoire.</p>
+          <p>Aime Mariage et Aime Studio sont deux expressions de cette même vision : accompagner les moments importants et celles et ceux qui font bouger les choses.</p>
+          <div class="about-signature"><svg class="flower" aria-hidden="true"><use href="#i-flower"/></svg>Indépendant d’esprit. Collectif par nature.</div>
+        </div>
+      </section>
+      <section class="manifesto section">
+        <div class="wrap">
+          <p class="eyebrow muted">02 / Notre boussole</p>
+          <div class="manifesto-center" data-reveal><h2>Les pieds sur terre.<br><span>Les idées grand ouvertes.</span></h2><p>Nous aimons les projets ambitieux et les relations simples. Les détails discrets et les idées fortes. Ce qui dure, plutôt que ce qui fait du bruit.</p></div>
+          <div class="values-grid" data-reveal>
+            <div class="value"><div class="value-heading"><span>01</span><h3>L’écoute.</h3></div><p>Chaque projet commence par une conversation, pas par une solution toute faite.</p></div>
+            <div class="value"><div class="value-heading"><span>02</span><h3>L’intention.</h3></div><p>Chaque choix de design ou de technologie répond à un besoin réel.</p></div>
+            <div class="value"><div class="value-heading"><span>03</span><h3>La sincérité.</h3></div><p>Des échanges directs, des décisions partagées et une collaboration transparente.</p></div>
+          </div>
+        </div>
+      </section>
+      <section class="project-cta wrap">
+        <p class="eyebrow">Les belles rencontres font les belles idées</p>
+        <div class="cta-heading"><h2>Faisons<br>connaissance.</h2><button class="round-arrow cta-orb" data-dialog="contact" aria-label="Nous contacter"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+        <div class="cta-bottom"><button class="button button-dark" data-dialog="contact">Dites-nous bonjour <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><p>Un premier échange. Et peut-être une belle histoire.</p></div>
+      </section>
+    </div>
+  </template>
+
+  <template id="page-request">
+    <div class="page-enter wrap request-page">
+      <section class="request-intro" aria-labelledby="request-title">
+        <p class="eyebrow"><span class="status-dot"></span>Aime Studio · Créer mon site</p>
+        <h1 id="request-title">Tout commence<br>par une idée.</h1>
+        <p>Parlez-nous de la vôtre. Pas besoin d’avoir toutes les réponses : on les trouvera ensemble.</p>
+        <div class="request-assurance">
+          <p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Un premier échange, sans engagement</p>
+          <p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Une proposition adaptée à votre projet</p>
+          <p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Un interlocuteur, du début à la suite</p>
+        </div>
+        <div class="request-email"><p>Vous préférez nous écrire directement ?</p><a href="mailto:bonjour@lemondeaime.fr" class="text-link">bonjour@lemondeaime.fr <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </section>
+      <div class="request-panel">
+        <form id="project-form">
+          <div class="form-topline"><span>VOTRE PROJET, EN QUELQUES MOTS</span><span>≈ 2 MINUTES</span></div>
+          <div class="form-row">
+            <div class="field"><label for="first-name">Prénom *</label><input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Votre prénom" required maxlength="70"></div>
+            <div class="field"><label for="last-name">Nom *</label><input id="last-name" name="lastName" type="text" autocomplete="family-name" placeholder="Votre nom" required maxlength="70"></div>
+          </div>
+          <div class="field"><label for="email">Adresse e-mail *</label><input id="email" name="email" type="email" autocomplete="email" placeholder="bonjour@votreprojet.fr" required maxlength="150"></div>
+          <div class="form-row">
+            <div class="field"><label for="company">Votre activité <span class="optional">(facultatif)</span></label><input id="company" name="company" type="text" autocomplete="organization" placeholder="Nom ou activité" maxlength="130"></div>
+            <div class="field"><label for="profile">Vous êtes… *</label><select id="profile" name="profile" required><option value="" disabled selected>Sélectionner</option>Entrepreneur·e</option>Indépendant·e</option>Artiste / créatif·ve</option>Entreprise</option>Association</option>Autre</option></select></div>
+          </div>
+          <fieldset class="field">
+            <legend>Qu’imaginez-vous pour votre projet ?</legend>
+            <div class="type-options">
+              <div class="type-option"><input type="radio" id="type-vitrine" name="siteType" value="Site vitrine" checked><label for="type-vitrine">Site vitrine</label></div>
+              <div class="type-option"><input type="radio" id="type-portfolio" name="siteType" value="Portfolio"><label for="type-portfolio">Portfolio</label></div>
+              <div class="type-option"><input type="radio" id="type-refonte" name="siteType" value="Refonte"><label for="type-refonte">Refonte</label></div>
+              <div class="type-option"><input type="radio" id="type-autre" name="siteType" value="À définir"><label for="type-autre">À définir</label></div>
+            </div>
+          </fieldset>
+          <div class="form-row">
+            <div class="field"><label for="budget">Budget envisagé</label><select id="budget" name="budget"><option>À définir ensemble</option>Moins de 1 500 €</option>1 500 à 3 000 €</option>3 000 à 5 000 €</option>Plus de 5 000 €</option></select></div>
+            <div class="field"><label for="timeline">Votre calendrier</label><select id="timeline" name="timeline"><option>Pas de date précise</option>Dès que possible</option>Dans 1 à 3 mois</option>Dans 3 à 6 mois</option>Je prépare la suite</option></select></div>
+          </div>
+          <div class="field">
+            <label for="project-message">Racontez-nous votre idée *</label>
+            <textarea id="project-message" name="message" placeholder="Votre activité, vos envies, les sites qui vous inspirent… On vous écoute." required minlength="10" maxlength="2000" aria-describedby="message-help"></textarea>
+            <div class="field-helper" id="message-help"><span>Quelques mots suffisent. Minimum 10 caractères.</span><span id="message-count">0 / 2 000</span></div>
+          </div>
+          <label class="consent-label"><input type="checkbox" name="consent" required><span>J’accepte que mes informations soient utilisées pour préparer ma demande et donner suite à mon projet. <button type="button" data-dialog="privacy">En savoir plus</button> *</span></label>
+          <button type="submit" class="button button-dark form-submit">Préparer ma demande <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p class="form-note">Votre récapitulatif sera enregistré sur cet appareil. L’envoi se finalise ensuite dans votre messagerie.</p>
+        </form>
+        <section class="confirmation" id="request-confirmation" hidden aria-labelledby="confirmation-title" tabindex="-1">
+          <div class="confirmation-mark"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></div>
+          <h2 id="confirmation-title">Votre idée est prête<br>à faire son chemin.</h2>
+          <p id="confirmation-text">Votre demande est enregistrée sur cet appareil. Il reste une étape : ouvrez votre messagerie pour nous la transmettre.</p>
+          <dl class="request-summary" id="request-summary"></dl>
+          <a href="mailto:bonjour@lemondeaime.fr" id="send-request-email" class="button button-dark">Envoyer ma demande par e-mail <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <div class="confirmation-actions"><button type="button" data-action="edit-request">Modifier ma demande</button><button type="button" data-action="download-request">Télécharger le récapitulatif</button></div>
+          <p class="saved-note">Rien n’a encore été envoyé. Le bouton ouvre un e-mail prérempli à vérifier et à envoyer depuis votre messagerie.</p>
+        </section>
+      </div>
+    </div>
+  </template>
+
+  <dialog id="contact-dialog" aria-labelledby="contact-title">
+    <button class="modal-close" data-action="close-dialog" aria-label="Fermer"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <svg class="flower modal-flower" aria-hidden="true"><use href="#i-flower"/></svg>
+    <h2 id="contact-title">Les belles idées<br>se rencontrent.</h2>
+    <p class="modal-intro">Un site à imaginer, un mariage à préparer, une collaboration à inventer ? Faisons le premier pas.</p>
+    <div class="contact-choice"><h3>Votre prochain site commence ici.</h3><p>Quelques questions pour comprendre votre projet et lancer la conversation.</p><a href="/demande-site" data-route="/demande-site" class="text-link">Parlez-nous de votre site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    <div class="contact-email"><div><span>Pour un mariage ou toute autre belle idée</span><a href="mailto:bonjour@lemondeaime.fr">bonjour@lemondeaime.fr</a></div><button class="copy-email" data-action="copy-email" aria-label="Copier l’adresse e-mail"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg></button></div>
+  </dialog>
+
+  <dialog id="legal-dialog" class="legal-dialog" aria-labelledby="legal-title">
+    <button class="modal-close" data-action="close-dialog" aria-label="Fermer"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <h2 id="legal-title">Informations légales.</h2>
+    <div class="legal-copy">
+      <h3>À propos de ce site</h3><p>Ce site vitrine présente LE MONDE AIME® et ses univers de création numérique, Aime Studio et Aime Mariage. Il ne propose ni achat en ligne, ni espace marchand, ni création de compte.</p>
+      <h3>Contact</h3><p>Pour toute question concernant le site, ses contenus ou un projet : <a href="mailto:bonjour@lemondeaime.fr">bonjour@lemondeaime.fr</a>.</p>
+      <h3>Contenus et créations</h3><p>Les textes, signes distinctifs et éléments graphiques sont présentés dans le cadre de l’identité de LE MONDE AIME. Les maquettes « ōra. » illustrent une intention de design ; elles ne constituent pas une référence client.</p>
+      <h3>Crédits</h3><p>Photographies d’illustration : Unsplash. Typographies : Manrope et DM Sans, distribuées via Google Fonts.</p>
+      <h3>Demandes de projet</h3><p>Le formulaire prépare un récapitulatif local. Une demande n’est transmise au studio que lorsque vous envoyez l’e-mail correspondant depuis votre messagerie. Elle ne vaut ni commande, ni acceptation d’un devis.</p>
+    </div>
+  </dialog>
+
+  <dialog id="privacy-dialog" class="legal-dialog" aria-labelledby="privacy-title">
+    <button class="modal-close" data-action="close-dialog" aria-label="Fermer"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <h2 id="privacy-title">Vos données,<br>tout simplement.</h2>
+    <div class="legal-copy">
+      <h3>Pas de suivi publicitaire</h3><p>Ce site n’utilise ni cookies publicitaires ni outil de mesure d’audience. Les images et les polices sont chargées depuis Unsplash et Google Fonts, auxquels votre navigateur transmet les informations techniques nécessaires à leur affichage.</p>
+      <h3>Votre demande de site</h3><p>Lorsque vous préparez une demande, les informations saisies sont enregistrées uniquement dans le stockage local de votre navigateur, sur cet appareil. Elles ne sont pas envoyées automatiquement à un serveur.</p>
+      <p>Vous choisissez ensuite de les transmettre par e-mail à bonjour@lemondeaime.fr. Les informations reçues servent à vous répondre et à étudier votre projet.</p>
+      <h3>Vous gardez la main</h3><p>Vous pouvez supprimer le récapitulatif local avec le bouton ci-dessous, ou en effaçant les données du site dans votre navigateur. Pour une demande d’accès, de rectification ou de suppression des informations envoyées par e-mail, écrivez à <a href="mailto:bonjour@lemondeaime.fr">bonjour@lemondeaime.fr</a>.</p>
+      <button class="button button-light" data-action="clear-data">Effacer ma demande enregistrée <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      "use strict";
+      const routes = {
+        "/": { template: "page-home", title: "LE MONDE AIME® — Le digital, avec un supplément d’âme." },
+        "/studio": { template: "page-studio", title: "Aime Studio — Votre site, vraiment. | LE MONDE AIME®" },
+        "/mariage": { template: "page-mariage", title: "Aime Mariage — Le grand jour, l’esprit léger. | LE MONDE AIME®" },
+        "/a-propos": { template: "page-about", title: "À propos — Un studio indépendant et humain. | LE MONDE AIME®" },
+        "/demande-site": { template: "page-request", title: "Créer mon site — Racontez-nous votre idée. | LE MONDE AIME®" }
+      };
+      const main = document.getElementById("main-content");
+      const menuButton = document.querySelector(".menu-toggle");
+      const mobileNav = document.getElementById("mobile-nav");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const storageKey = "lemondeaime.projectRequest";
+      let currentRoute = null;
+      let observer;
+      let toastTimer;
+      let requestText = "";
+
+      function routeFromLocation() {
+        const hashRoute = location.hash.startsWith("#/") ? location.hash.slice(1).split("?")[0] : "";
+        const path = location.pathname.replace(/\/$/, "") || "/";
+        return routes[hashRoute] ? hashRoute : routes[path] ? path : "/";
+      }
+
+      function closeMenu() {
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Ouvrir le menu");
+        mobileNav.hidden = true;
+      }
+
+      function closeDialogs() {
+        document.querySelectorAll("dialog[open]").forEach(dialog => dialog.close());
+        document.body.classList.remove("modal-open");
+      }
+
+      function revealElements() {
+        if (observer) observer.disconnect();
+        if (reducedMotion || !("IntersectionObserver" in window)) return;
+        observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .07, rootMargin: "0px 0px -20px 0px" });
+        main.querySelectorAll("[data-reveal]").forEach(el => {
+          el.classList.add("will-reveal");
+          observer.observe(el);
+        });
+      }
+
+      function render(route, scrollToTop = true, focus = false) {
+        route = routes[route] ? route : "/";
+        currentRoute = route;
+        closeMenu();
+        closeDialogs();
+        const template = document.getElementById(routes[route].template);
+        main.replaceChildren(document.importNode(template.content, true));
+        document.title = routes[route].title;
+        const activeNav = route === "/demande-site" ? "/studio" : route;
+        document.querySelectorAll("[data-nav]").forEach(link => {
+          if (link.dataset.nav === activeNav) link.setAttribute("aria-current", "page");
+          else link.removeAttribute("aria-current");
+        });
+        if (scrollToTop) window.scrollTo({ top: 0, behavior: "instant" });
+        revealElements();
+        if (route === "/demande-site") initForm();
+        if (focus) main.focus({ preventScroll: true });
+      }
+
+      function navigate(route) {
+        if (!routes[route]) return;
+        try {
+          history.pushState({ route }, "", route);
+        } catch (error) {
+          location.hash = "#" + route;
+        }
+        render(route, true, true);
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("visible");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("visible"), 3500);
+      }
+
+      function openDialog(name) {
+        const dialog = document.getElementById(name + "-dialog");
+        if (!dialog) return;
+        closeMenu();
+        closeDialogs();
+        dialog.showModal();
+        document.body.classList.add("modal-open");
+      }
+
+      function scrollToSection(id) {
+        let target = document.getElementById(id);
+        if (!target) {
+          navigate("/");
+          target = document.getElementById(id);
+        }
+        if (target) requestAnimationFrame(() => target.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth", block: "start" }));
+      }
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", String(!isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
+        mobileNav.hidden = isOpen;
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeMenu();
+      });
+
+      document.querySelectorAll("dialog").forEach(dialog => {
+        dialog.addEventListener("close", () => {
+          if (!document.querySelector("dialog[open]")) document.body.classList.remove("modal-open");
+        });
+        dialog.addEventListener("click", event => {
+          if (event.target !== dialog) return;
+          const rect = dialog.getBoundingClientRect();
+          if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+        });
+      });
+
+      document.addEventListener("click", async event => {
+        const routeLink = event.target.closest("[data-route]");
+        if (routeLink) {
+          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          navigate(routeLink.dataset.route);
+          return;
+        }
+        const scrollLink = event.target.closest("[data-scroll]");
+        if (scrollLink) {
+          event.preventDefault();
+          scrollToSection(scrollLink.dataset.scroll);
+          return;
+        }
+        const dialogTrigger = event.target.closest("[data-dialog]");
+        if (dialogTrigger) {
+          event.preventDefault();
+          openDialog(dialogTrigger.dataset.dialog);
+          return;
+        }
+        const actionButton = event.target.closest("[data-action]");
+        if (!actionButton) return;
+        const action = actionButton.dataset.action;
+        if (action === "close-dialog") actionButton.closest("dialog").close();
+        if (action === "top") window.scrollTo({ top: 0, behavior: reducedMotion ? "instant" : "smooth" });
+        if (action === "copy-email") {
+          try {
+            await navigator.clipboard.writeText("bonjour@lemondeaime.fr");
+            showToast("Adresse e-mail copiée.");
+          } catch (error) {
+            const temp = document.createElement("textarea");
+            temp.value = "bonjour@lemondeaime.fr";
+            temp.style.position = "fixed";
+            temp.style.opacity = "0";
+            (document.querySelector("dialog[open]") || document.body).appendChild(temp);
+            temp.select();
+            const copied = document.execCommand("copy");
+            temp.remove();
+            showToast(copied ? "Adresse e-mail copiée." : "Écrivez-nous à bonjour@lemondeaime.fr");
+          }
+        }
+        if (action === "edit-request") {
+          const form = document.getElementById("project-form");
+          const confirmation = document.getElementById("request-confirmation");
+          if (form && confirmation) {
+            confirmation.hidden = true;
+            form.hidden = false;
+            form.querySelector("input").focus({ preventScroll: true });
+            form.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth", block: "start" });
+          }
+        }
+        if (action === "download-request" && requestText) {
+          const blob = new Blob([requestText], { type: "text/plain;charset=utf-8" });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "mon-projet-aime-studio.txt";
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+          showToast("Votre récapitulatif a été préparé.");
+        }
+        if (action === "clear-data") {
+          try {
+            localStorage.removeItem(storageKey);
+            showToast("La demande enregistrée sur cet appareil a été effacée.");
+          } catch (error) {
+            showToast("Le stockage local n’est pas accessible dans ce navigateur.");
+          }
+        }
+      });
+
+      function initForm() {
+        const form = document.getElementById("project-form");
+        const textarea = document.getElementById("project-message");
+        const counter = document.getElementById("message-count");
+        textarea.addEventListener("input", () => {
+          counter.textContent = textarea.value.length.toLocaleString("fr-FR") + " / 2 000";
+        });
+
+        form.addEventListener("submit", event => {
+          event.preventDefault();
+          if (!form.reportValidity()) return;
+
+          const data = Object.fromEntries(new FormData(form).entries());
+          data.firstName = data.firstName.trim();
+          data.lastName = data.lastName.trim();
+          data.message = data.message.trim();
+          if (!data.firstName || !data.lastName || data.message.length < 10) {
+            showToast("Merci de compléter votre nom et de décrire votre idée en quelques mots.");
+            return;
+          }
+          data.createdAt = new Date().toISOString();
+          let saved = false;
+          try {
+            localStorage.setItem(storageKey, JSON.stringify(data));
+            saved = true;
+          } catch (error) {}
+
+          const fullName = data.firstName + " " + data.lastName;
+          requestText = [
+            "DEMANDE DE CRÉATION DE SITE — AIME STUDIO",
+            "",
+            "Bonjour LE MONDE AIME,",
+            "",
+            "Voici quelques mots sur mon projet :",
+            "",
+            "Nom : " + fullName,
+            "E-mail : " + data.email,
+            "Activité : " + (data.company.trim() || "Non précisée"),
+            "Profil : " + data.profile,
+            "Type de site : " + data.siteType,
+            "Budget : " + data.budget,
+            "Calendrier : " + data.timeline,
+            "",
+            "MON IDÉE",
+            data.message,
+            "",
+            "J’accepte que ces informations soient utilisées pour donner suite à ma demande.",
+            "",
+            "À bientôt,",
+            data.firstName
+          ].join("\n");
+
+          const summary = document.getElementById("request-summary");
+          summary.replaceChildren();
+          [
+            ["Votre nom", fullName],
+            ["Votre e-mail", data.email],
+            ["Votre projet", data.siteType],
+            ["Votre calendrier", data.timeline]
+          ].forEach(([label, value]) => {
+            const row = document.createElement("div");
+            row.className = "summary-row";
+            const term = document.createElement("dt");
+            term.textContent = label;
+            const description = document.createElement("dd");
+            description.textContent = value;
+            row.append(term, description);
+            summary.appendChild(row);
+          });
+
+          document.getElementById("confirmation-text").textContent = saved
+            ? "Votre demande est enregistrée sur cet appareil. Il reste une étape : ouvrez votre messagerie pour nous la transmettre."
+            : "Votre récapitulatif est prêt. Il reste une étape : ouvrez votre messagerie pour nous transmettre votre demande. Le stockage local n’est pas disponible sur cet appareil.";
+          document.getElementById("send-request-email").href = "mailto:bonjour@lemondeaime.fr?subject=" + encodeURIComponent("Projet de site — " + fullName) + "&body=" + encodeURIComponent(requestText);
+          form.hidden = true;
+          const confirmation = document.getElementById("request-confirmation");
+          confirmation.hidden = false;
+          confirmation.focus({ preventScroll: true });
+          confirmation.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth", block: "center" });
+        });
+      }
+
+      window.addEventListener("popstate", () => render(routeFromLocation(), true, true));
+      window.addEventListener("hashchange", () => {
+        const route = routeFromLocation();
+        if (route !== currentRoute) render(route, true, true);
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 800) closeMenu();
+      });
+
+      document.getElementById("copyright-year").textContent = new Date().getFullYear();
+      render(routeFromLocation(), false);
+      if (location.hash && !location.hash.startsWith("#/")) {
+        const id = decodeURIComponent(location.hash.slice(1));
+        setTimeout(() => {
+          const target = document.getElementById(id);
+          if (target) target.scrollIntoView();
+        }, 100);
+      }
+    })();
+  </script>
+</body>
+</html>
