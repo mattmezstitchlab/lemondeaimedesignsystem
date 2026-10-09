@@ -40,3 +40,13 @@ Comparer le logo officiel avec la reconstruction ; vérifier les licences média
 Scénarios : menu mobile puis Échap ; chips actif/désactivé ; boutons et chips en chargement ; erreurs du formulaire puis correction/reset ; assistant indisponible puis retry sans perte de texte ; carrousel aux flèches ; modale avec retour du focus ; import vidéo locale valide/invalide ; brouillon différent du public puis sauvegarde réussie/échouée ; changement pendant sauvegarde et réinitialisation ; navigation des onglets aux flèches/Home/End ; texte HTML affiché sans interprétation.
 
 Il n’existe pas de suite de tests, build ou linter configurés dans ce dépôt statique. Vérifications disponibles : syntaxe JavaScript avec Node, `git diff --check`, navigateur installé, scan des secrets et CodeQL. Les médias et polices externes peuvent être bloqués dans l’environnement de vérification ; ne pas confondre un layout testé avec une disponibilité média confirmée.
+
+## Vérifications réalisées le 9 octobre 2026
+
+- Chromium : aucun débordement de page à 375, 390, 768, 1024 et 1440 px ; tableau défilant isolé. Captures locales du laboratoire dans `/tmp/design-system-verification/design-system-{largeur}.png` ; elles ne représentent pas le site Matt Mez Sax.
+- Menu/Échap, onglets/flèches/Home/End, formulaires invalides puis valides/reset, chat erreur/retry sans perte de texte, scroll et hauteur stable, chips et boutons en chargement, carrousel, modale et retour du focus.
+- Renderer identique pour brouillon/mobile ; vue publique inchangée avant sauvegarde. Succès, erreur, reset pendant sauvegarde et modifications concurrentes testés ; aucune persistance après rechargement.
+- Saisie HTML rendue en texte (chat et titre édité), pas d’interprétation. Focus doux sur tous les types de champs et couleurs forcées ; animations réduites.
+- Contrastes : texte 7,62:1, bouton 14,36:1, sélection 8,43:1, erreur 7,19:1, focus 4,82:1.
+- Vidéo WebM locale de démonstration : chargement, lecture sur action utilisateur et pause ; fichier non vidéo rejeté, aucun upload.
+- Limites : polices/photos externes non chargées dans le sandbox ; audit du site et du dépôt bloqué ; Safari/iOS/Android et fonctions métier non vérifiés.

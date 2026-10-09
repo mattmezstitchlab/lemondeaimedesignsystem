@@ -344,6 +344,12 @@
         <li><strong>Porter par famille après accord.</strong> D’abord boutons / champs / cartes ; puis navigation et médias ; assistant en dernier, sans toucher aux moteurs, demandes, devis, documents ou permissions. Espace client et administration restent spécifiques.</li>
         <li><strong>Recette et retour arrière.</strong> Comparaisons visuelles, clavier, contrastes, erreurs et tests métier existants. Faire valider chaque étape et préserver la possibilité de revenir aux styles précédents. Aucune publication automatique.</li>
       </ol>
+      <details><summary>Vérifications du laboratoire — 9 octobre 2026</summary><div class="details-content">
+        <p>Chromium : layout sans débordement de page à 375, 390, 768, 1024 et 1440 px ; tableau défilant dans son propre conteneur. Captures du laboratoire réalisées à ces cinq largeurs, séparées des diagnostics d’accès au site.</p>
+        <p>Vérifiés : menu / Échap, onglets / flèches / Home / End, validation et correction des formulaires, suggestions et erreur du chat sans perte de texte, hauteur stable et scroll interne, carrousel, modale, états de chargement, sauvegarde locale réussie / échouée, modifications pendant sauvegarde, reset et absence de persistance au rechargement. Texte HTML rendu sans interprétation.</p>
+        <p>Focus vert vérifié sur texte, select, date, textarea et saisie du chat, y compris mode couleurs forcées. Animations et transitions coupées avec prefers-reduced-motion. Contrastes calculés : texte / blanc 7,62:1 ; bouton 14,36:1 ; sélection 8,43:1 ; erreur 7,19:1 ; bordure de focus / blanc 4,82:1.</p>
+        <p>Lecteur local testé avec un WebM de démonstration, lecture volontaire et pause ; fichier non vidéo rejeté. Les polices Google et photographies Unsplash ne chargent pas dans cet environnement : leur rendu définitif et les contrastes dépendant des photographies restent à vérifier. Safari, iOS, Android, moteurs métier et écrans de production ne sont pas validés par ces tests.</p>
+      </div></details>
     </section>
     <template id="landing-card-template"><article class="harmonized-card"><span class="badge" data-card-service></span><h3 data-card-title></h3><p data-card-description></p><button class="button primary" type="button" data-card-cta></button><small>Exemple indépendant · aucun dossier réel</small></article></template>
   </main>

@@ -201,6 +201,12 @@ document.querySelectorAll("[data-gallery]").forEach((button) => {
   });
 });
 galleryDialog.addEventListener("close", () => galleryTrigger?.focus());
+galleryDialog.addEventListener("keydown", (event) => {
+  if (event.key === "Tab") {
+    event.preventDefault();
+    galleryDialog.querySelector("button").focus();
+  }
+});
 
 const editorForm = document.querySelector("#editor-form");
 const editorStatus = document.querySelector("#editor-status");
