@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#1f3f28">
+  <meta name="theme-color" content="#164c70">
   <meta name="description" content="LE MONDE AIME : fondations, composants et référence conversationnelle pour une refonte progressive de Matt Mez Sax.">
   <title>LE MONDE AIME® — Design System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,13 +75,13 @@
         <article class="foundation colors">
           <h3>Couleurs</h3>
           <div class="swatches">
-            <div><span class="swatch deep"></span><strong>Vert profond</strong><code>#1F3F28</code><small>Principal</small></div>
-            <div><span class="swatch accent"></span><strong>Vert accent</strong><code>#A3D65C</code><small>Accent</small></div>
-            <div><span class="swatch sand"></span><strong>Sable</strong><code>#F6F7F5</code><small>Fond</small></div>
-            <div><span class="swatch gray"></span><strong>Gris texte</strong><code>#485563</code><small>Secondaire</small></div>
+            <div><span class="swatch deep"></span><strong>Bleu pétrole</strong><code>#164C70</code><small>Principal</small></div>
+            <div><span class="swatch accent"></span><strong>Turquoise</strong><code>#12B5B4</code><small>Accent</small></div>
+            <div><span class="swatch sand"></span><strong>Sable</strong><code>#F7F8F8</code><small>Fond</small></div>
+            <div><span class="swatch gray"></span><strong>Gris texte</strong><code>#62666B</code><small>Secondaire</small></div>
             <div><span class="swatch light"></span><strong>Gris clair</strong><code>#E5E7EB</code><small>Bordures</small></div>
           </div>
-          <p class="rule">Texte sombre sur l’accent. Jamais de texte vert accent sur blanc.</p>
+          <p class="rule">Texte noir ou blanc selon le contraste : ne jamais utiliser une teinte claire comme couleur de texte sur blanc.</p>
         </article>
         <article class="foundation typography">
           <h3>Typographie</h3><div class="type-preview"><span>Aa</span><p><strong>Manrope / DM Sans</strong><br>Titres / corps de texte.</p></div>
@@ -104,6 +104,30 @@
       </div>
     </section>
 
+
+    <section class="wrap reference-section chromatic-section" id="couleurs-univers" aria-labelledby="chromatic-title">
+      <div class="section-heading"><h2 id="chromatic-title"><span>02.</span> Couleurs &amp; univers</h2><p>Un langage commun, plusieurs expressions</p></div>
+      <p class="chromatic-intro">Les interfaces restent blanches, les titres noirs et les descriptions gris anthracite. Les dégradés servent d’accents narratifs : ils ne remplacent ni les textes ni les contrastes fonctionnels.</p>
+      <div class="chromatic-neutrals" aria-label="Palette neutre">
+        <span class="chromatic-neutral"><i style="--neutral:#161616"></i>Noir · #161616</span>
+        <span class="chromatic-neutral"><i style="--neutral:#62666b"></i>Gris · #62666B</span>
+        <span class="chromatic-neutral"><i style="--neutral:#858a90"></i>Gris discret · #858A90</span>
+        <span class="chromatic-neutral"><i style="--neutral:#f7f8f8"></i>Surface · #F7F8F8</span>
+      </div>
+      <div class="chromatic-grid">
+        <article class="chromatic-card" data-universe="aime"><div class="chromatic-gradient" role="img" aria-label="Dégradé bleu pétrole, turquoise et vert d'eau"></div><div class="chromatic-card-body"><h3>LE MONDE AIME®</h3><p>Signature : bleu pétrole → turquoise → vert d’eau.</p></div></article>
+        <article class="chromatic-card" data-universe="mariage"><div class="chromatic-gradient" role="img" aria-label="Dégradé bleu, cyan et vert doux"></div><div class="chromatic-card-body"><h3>Mariage</h3><p>Bleu lumineux → cyan → vert tendre.</p></div></article>
+        <article class="chromatic-card" data-universe="studio"><div class="chromatic-gradient" role="img" aria-label="Dégradé violet, mauve et fuchsia"></div><div class="chromatic-card-body"><h3>Studio</h3><p>Violet → mauve → fuchsia.</p></div></article>
+        <article class="chromatic-card" data-universe="musique"><div class="chromatic-gradient" role="img" aria-label="Dégradé corail, rose et lavande"></div><div class="chromatic-card-body"><h3>Musique</h3><p>Corail → rose → lavande.</p></div></article>
+      </div>
+      <div class="chromatic-examples" style="margin-top:18px" aria-label="Exemples des accents chromatiques">
+        <button type="button" class="chromatic-demo-button">Action principale</button>
+        <button type="button" class="chromatic-demo-button gradient">Action accentuée ↗</button>
+        <span class="chromatic-chip">Univers mariage</span>
+        <a class="chromatic-demo-link" href="#composants">Voir les composants ↗</a>
+      </div>
+      <p class="rule">Contraste : boutons principaux noirs à texte blanc ; gradient décoratif avec texte foncé stable sur la variante turquoise claire. Les couleurs d’univers ne signifient pas à elles seules un état ou une action.</p>
+    </section>
     <section class="wrap reference-section" id="composants" aria-labelledby="components-title">
       <div class="section-heading"><h2 id="components-title"><span>02.</span> Composants</h2><p>Des éléments prêts à l’emploi</p></div>
       <div class="components-grid">
@@ -342,7 +366,7 @@
       <details open><summary>Tokens CSS &amp; conflits de thèmes — comparaison technique à terminer</summary><div class="details-content">
         <p><strong>Seule la colonne design system est vérifiée dans le code local.</strong> Les valeurs applicatives n’ont pas pu être lues : aucune équivalence hex/HSL ou mapping sémantique ne peut encore être approuvé.</p>
         <ul>
-          <li>Couleurs : <code>--deep: #1f3f28</code>, <code>--accent: #a3d65c</code>, <code>--ink: #1d252c</code>, <code>--text: #485563</code>, <code>--sand: #f6f7f5</code>, <code>--line: #e5e7eb</code>, <code>--focus: #537d36</code>. Bouton principal : <code>#192e28</code>. Relever en face les tokens sémantiques, valeurs light/dark et classes codées en dur.</li>
+          <li>Couleurs : <code>--deep: #164c70</code>, <code>--accent: #a3d65c</code>, <code>--ink: #161616</code>, <code>--text: #62666B</code>, <code>--sand: #f6f7f5</code>, <code>--line: #e5e7eb</code>, <code>--focus: #127E83</code>. Bouton principal : <code>#161616</code>. Relever en face les tokens sémantiques, valeurs light/dark et classes codées en dur.</li>
           <li>Typographie : DM Sans corps, Manrope titres. Space Grotesk / Inter côté application n’est qu’une référence antérieure ; vérifier imports, poids, métriques et héritage avant adaptation.</li>
           <li>Rythme : grille 4 px, marges <code>clamp(20px, 4.5vw, 64px)</code>, rayon de base 12 px, assistant 24 px, icônes 24 px / 1,5 px. Comparer les breakpoints réels, rayons et tailles des primitives plutôt que remplacer globalement.</li>
           <li>Risque confirmé dans ce laboratoire : <code>:root</code>, sélecteurs de balises (<code>body</code>, <code>nav</code>, <code>input</code>, <code>dialog</code>) et noms génériques (<code>.field</code>, <code>.primary</code>, <code>.chip</code>) ne sont pas isolés pour une application multi-thème. Ne jamais importer cette feuille entière dans Matt Mez Admin.</li>
