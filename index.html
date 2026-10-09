@@ -1,20 +1,190 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>LE MONDE AIME® — Design System Lab</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#20231f;--muted:#71756d;--line:#e6e7e1;--paper:#f5f5f1;--lime:#d4ed9c;--white:#fff;--body:"DM Sans",sans-serif;--heading:"Manrope",sans-serif;--space:clamp(20px,4.5vw,72px);--ease:cubic-bezier(.22,1,.36,1);--radius:8px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#fff;font-family:var(--body);-webkit-font-smoothing:antialiased}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--heading);font-weight:500;letter-spacing:-.045em}a{color:inherit}button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #587238;outline-offset:4px} .wrap{max-width:1480px;margin:auto;padding-inline:var(--space)}.top{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:76px;border-bottom:1px solid var(--line)}.wordmark{display:flex;align-items:center;gap:12px;font:800 15px/1.03 var(--heading);letter-spacing:-.06em;text-decoration:none}.mark{width:33px;height:33px;color:var(--ink)}.top nav{display:flex;flex-wrap:wrap;gap:18px;font-size:12px}.top nav a{text-decoration:none}.eyebrow{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}.intro{padding-block:80px 55px}.intro h1{font-size:clamp(48px,8.5vw,112px);max-width:980px;line-height:1.06;margin:18px 0 24px}.lead{font-size:clamp(15px,1.7vw,21px);color:var(--muted);line-height:1.6;max-width:690px}.hero-image{height:min(50vw,490px);min-height:250px;background:#e6e5df url("https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=1800&q=85") center/cover}.section{padding-block:70px;border-bottom:1px solid var(--line)}.section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:26px}.section h2{font-size:clamp(30px,4vw,52px)}.note{font-size:12px;color:var(--muted);line-height:1.7;max-width:520px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.swatch{min-height:155px;border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;justify-content:end;overflow:hidden}.swatch span{padding:12px;background:#fff;font-size:12px;border-top:1px solid var(--line)}.swatch b{display:block;margin-bottom:4px}.type-row{display:grid;grid-template-columns:165px 1fr;gap:25px;padding:25px 0;border-top:1px solid var(--line)}.type-row .sample{min-width:0}.display{font:500 clamp(40px,6vw,86px)/1.1 var(--heading);letter-spacing:-.065em}.heading{font:500 clamp(28px,4vw,52px)/1.2 var(--heading);letter-spacing:-.05em}.bodycopy{font-size:16px;line-height:1.8;max-width:690px}.components{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{border:1px solid var(--line);padding:25px;border-radius:var(--radius);min-width:0}.panel h3{font-size:23px;margin-bottom:20px}.stack{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.btn,.chip{min-height:40px;display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border:1px solid var(--ink);background:#fff;border-radius:6px;text-decoration:none;font-size:13px;color:var(--ink);transition:transform .2s var(--ease),background .2s}.btn:hover,.chip:hover{transform:translateY(-2px)}.btn.dark{background:var(--ink);color:#fff}.btn.lime{background:var(--lime);border-color:var(--lime)}.chip{min-height:30px;font-size:11px;padding:6px 11px;border-color:var(--line)}.field{display:block;width:100%;margin:10px 0;padding:13px;border:1px solid #c9ccc2;border-radius:6px;background:#fff;color:var(--ink)}.field-label{font-size:12px;font-weight:600}.glass-demo{min-height:330px;padding:20px;display:grid;place-items:center;background:url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80") center/cover;border-radius:8px}.chat{width:min(100%,520px);height:280px;display:flex;flex-direction:column;border-radius:12px;background:rgba(255,255,255,.76);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.65);box-shadow:0 12px 45px #1e241d20;overflow:hidden}.chat-head,.chat-foot{padding:11px 14px;flex:none}.chat-head{border-bottom:1px solid #20231f16;font-size:12px;font-weight:700}.chat-head small{display:block;color:var(--muted);font-weight:400;margin-top:3px}.chat-log{overflow-y:auto;flex:1;min-height:0;padding:12px 14px;font-size:12px;line-height:1.55}.bubble{background:#ffffffd9;border:1px solid #20231f14;border-radius:8px;padding:9px 11px;max-width:87%;margin-bottom:9px}.chat-foot{border-top:1px solid #20231f18;display:flex;gap:7px}.chat-foot input{flex:1;min-width:0;border:1px solid #20231f25;border-radius:6px;background:#fff9;padding:9px;font-size:12px}.chat-foot button{background:var(--ink);color:white;border:0;border-radius:6px;padding:0 14px}.list{font-size:13px;line-height:1.9;padding-left:20px;color:var(--muted)}.mini{font-size:11px;color:var(--muted)}.footer{padding-block:40px 70px;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.copy{padding:10px 13px;background:var(--paper);border:1px solid var(--line);border-radius:5px;font-size:11px}.status{font-size:11px;color:var(--muted)}@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.components{grid-template-columns:1fr}.type-row{grid-template-columns:1fr;gap:10px}.top{align-items:start;flex-direction:column;padding-block:20px}.intro{padding-block:55px 35px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
-</style></head><body>
-<header class="wrap top"><a class="wordmark" href="#" aria-label="LE MONDE AIME — Design System"><svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="5" fill="currentColor"/><g stroke="currentColor" stroke-width="2"><ellipse cx="24" cy="12" rx="6" ry="10"/><ellipse cx="24" cy="36" rx="6" ry="10"/><ellipse cx="12" cy="24" rx="10" ry="6"/><ellipse cx="36" cy="24" rx="10" ry="6"/></g></svg><span>LE MONDE<br>AIME®</span></a><nav aria-label="Sections"><a href="#fondations">Fondations</a><a href="#composants">Composants</a><a href="#assistant">Assistant</a><a href="#integration">Intégration</a></nav></header>
-<main><div class="wrap intro"><div class="eyebrow">Design system lab / Référence indépendante / v0.1</div><h1>Le beau.<br>Le juste. Le vôtre.</h1><p class="lead">Un langage visuel vivant extrait de la page LE MONDE AIME® : typographie, couleur, rythme, composants et interactions. Un laboratoire de référence, pas une refonte du site Matt Mez Sax.</p></div><div class="hero-image" role="img" aria-label="Photographie éditoriale immersive"></div>
-<section class="wrap section" id="fondations"><div class="section-heading"><h2>01. Fondations</h2><p class="note">Valeurs relevées dans « index 9.html ». Ces couleurs ne doivent pas écraser les thèmes existants de l'administration.</p></div><div class="grid">
-<div class="swatch" style="background:#20231f"><span><b>Ink</b>#20231F</span></div><div class="swatch" style="background:#71756d"><span><b>Muted</b>#71756D</span></div><div class="swatch" style="background:#f5f5f1"><span><b>Paper</b>#F5F5F1</span></div><div class="swatch" style="background:#d4ed9c"><span><b>Accent Lime</b>#D4ED9C</span></div></div>
-<div style="margin-top:35px"><div class="type-row"><span class="eyebrow">Display / Manrope</span><div class="sample display">Des idées qui rapprochent.</div></div><div class="type-row"><span class="eyebrow">Heading / Manrope</span><div class="sample heading">Une identité qui respire.</div></div><div class="type-row"><span class="eyebrow">Body / DM Sans</span><p class="sample bodycopy">Nous imaginons des expériences simples, intelligentes et humaines. Le design n'est pas un décor : il clarifie le parcours, renforce la confiance et laisse les contenus respirer.</p></div><div class="type-row"><span class="eyebrow">Microcopy / DM Sans</span><span class="eyebrow">Une intention · un chemin · une action</span></div></div></section>
-<section class="wrap section" id="composants"><div class="section-heading"><h2>02. Composants</h2><p class="note">États démonstratifs ; les boutons de ce laboratoire ne déclenchent aucune opération sur un dossier réel.</p></div><div class="components"><div class="panel"><h3>Actions & suggestions</h3><div class="stack"><button class="btn dark" type="button">Découvrir <span aria-hidden="true">↗</span></button><button class="btn lime" type="button">Faire une demande ↗</button><button class="btn" type="button">En savoir plus</button></div><p class="mini" style="margin:22px 0 12px">CHIPS COMPACTES</p><div class="stack"><button class="chip" type="button">Réserver Matt Mez</button><button class="chip" type="button">Organiser mon mariage</button><button class="chip" type="button">Voir les disponibilités</button></div></div><div class="panel"><h3>Formulaire</h3><label class="field-label" for="name">Nom du projet</label><input class="field" id="name" placeholder="Votre projet"><label class="field-label" for="description">Description</label><textarea class="field" id="description" rows="2" placeholder="Racontez votre idée"></textarea><p class="mini">Bordure visible, focus clavier explicite, rayon 6 px.</p></div></div></section>
-<section class="wrap section" id="assistant"><div class="section-heading"><h2>03. Assistant dans le hero</h2><p class="note">Prototype visuel indépendant. La logique conversationnelle réelle reste celle de Matt Mez Admin.</p></div><div class="glass-demo"><div class="chat"><div class="chat-head">L'assistant de Matthieu<small>Disponibilités · Devis · Organisation</small></div><div class="chat-log" id="messages" aria-live="polite"><div class="bubble">Bonjour ! Je peux vous aider à préparer votre événement.</div><div class="stack"><button type="button" class="chip" data-suggest="Je souhaite réserver Matt Mez.">Réserver Matt Mez</button><button type="button" class="chip" data-suggest="Je souhaite organiser mon mariage.">Organiser mon mariage</button></div></div><form class="chat-foot" id="demo-form"><input id="demo-input" aria-label="Votre message" placeholder="Écrivez votre message…"><button type="submit" aria-label="Afficher le message de démonstration">↑</button></form></div></div><p class="mini" style="margin-top:12px">Dimensions fixes : 280 px de haut, maximum 520 px dans ce prototype. Les messages défilent à l'intérieur. Aucun envoi, aucune réservation ni IA.</p></section>
-<section class="wrap section" id="integration"><div class="section-heading"><h2>04. Intégration sans régression</h2><p class="note">Référence pour Arena et pour une éventuelle adaptation progressive à mattmezsax.base44.app.</p></div><div class="components"><div class="panel"><h3>À adopter progressivement</h3><ol class="list"><li>Valider la typographie DM Sans / Manrope sur un aperçu isolé.</li><li>Adapter les composants Landing un par un.</li><li>Préserver vidéo hero, assistant, Instant(s) et comportements métier.</li><li>Vérifier mobile, accessibilité et contraste.</li><li>Comparer visuellement avant toute fusion.</li></ol></div><div class="panel"><h3>À préserver absolument</h3><ol class="list"><li>Pas de remplacement global de variables Tailwind/shadcn.</li><li>Pas de changement des thèmes Atelier ni des espaces clients.</li><li>Pas de modification des entités Base44, permissions ou données.</li><li>Pas d'écrasement du moteur conversationnel, devis ou envois.</li><li>Pas de publication ni merge automatique.</li></ol></div></div><p class="mini" style="margin-top:25px">Source graphique : index 9.html · Référence technique : matt-mez-admin/src/index.css et src/components/landing/Hero.jsx · Les autres variantes du logo doivent être vérifiées avant adoption définitive.</p></section></main>
-<footer class="wrap footer"><span class="wordmark">LE MONDE AIME®</span><span class="status">Laboratoire autonome · Aucune connexion aux données clients</span></footer>
-<script>
-document.querySelectorAll("[data-suggest]").forEach(b=>b.addEventListener("click",()=>{document.querySelector("#demo-input").value=b.dataset.suggest;document.querySelector("#demo-input").focus()}));
-document.querySelector("#demo-form").addEventListener("submit",e=>{e.preventDefault();const input=document.querySelector("#demo-input"),v=input.value.trim();if(!v)return;const el=document.createElement("div");el.className="bubble";el.style.marginLeft="auto";el.textContent=v;document.querySelector("#messages").append(el);input.value="";document.querySelector("#messages").scrollTop=document.querySelector("#messages").scrollHeight});
-</script></body></html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f3f28">
+  <meta name="description" content="LE MONDE AIME : fondations, composants et référence conversationnelle pour une refonte progressive de Matt Mez Sax.">
+  <title>LE MONDE AIME® — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-system.css">
+  <script src="design-system.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="flower" viewBox="0 0 48 48">
+        <ellipse cx="24" cy="24" rx="5.5" ry="22"/>
+        <ellipse cx="24" cy="24" rx="5.5" ry="22" transform="rotate(45 24 24)"/>
+        <ellipse cx="24" cy="24" rx="5.5" ry="22" transform="rotate(90 24 24)"/>
+        <ellipse cx="24" cy="24" rx="5.5" ry="22" transform="rotate(135 24 24)"/>
+      </symbol>
+      <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+      <symbol id="heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+      <symbol id="calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18"/></symbol>
+      <symbol id="music" viewBox="0 0 24 24"><path d="M9 18V5l12-3v13M9 9l12-3"/><ellipse cx="6" cy="18" rx="3" ry="3"/><ellipse cx="18" cy="15" rx="3" ry="3"/></symbol>
+      <symbol id="pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="mail" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
+      <symbol id="spark" viewBox="0 0 24 24"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/></symbol>
+      <symbol id="people" viewBox="0 0 24 24"><circle cx="8" cy="6" r="3"/><path d="M2 21v-4a6 6 0 0 1 12 0v4m3-9a5 5 0 0 1 5 5v4"/><path d="M17 3a3 3 0 0 1 0 6"/></symbol>
+      <symbol id="camera" viewBox="0 0 24 24"><path d="M8 5 9 2h6l1 3h4a2 2 0 0 1 2 2v13H2V7a2 2 0 0 1 2-2Z"/><circle cx="12" cy="12" r="4"/></symbol>
+      <symbol id="chat" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9l-6 3V5a2 2 0 0 1 2-2Z"/><path d="M7 10h.01M12 10h.01M17 10h.01"/></symbol>
+      <symbol id="edit" viewBox="0 0 24 24"><path d="m14 5 5 5M4 20l5-1L22 6l-5-5L4 14Z"/><path d="M10 3H4a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h15a2 2 0 0 0 2-2v-6"/></symbol>
+      <symbol id="phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+    </defs>
+  </svg>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#accueil" aria-label="LE MONDE AIME — accueil">
+        <svg class="flower" aria-hidden="true"><use href="#flower"/></svg>
+        <span>LE MONDE<br>AIME<sup>®</sup></span>
+      </a>
+      <nav aria-label="Navigation principale">
+        <a class="nav-current" href="#accueil" aria-current="page">Design System</a>
+        <a href="#principes">Principes</a><a href="#fondations">Fondations</a>
+        <a href="#composants">Composants</a><a href="#assistant">Exemples</a><a href="#ressources">Ressources</a>
+      </nav>
+      <a class="button primary header-cta" href="#integration">Utiliser ce système <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </header>
+  <main id="contenu">
+    <section class="wrap hero" id="accueil" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow dot">Une autre idée du digital</p>
+        <h1 id="hero-title">Le digital,<br>l’émotion, sur<br>mesure.</h1>
+        <p class="lead">LE MONDE AIME® conçoit des expériences digitales<br class="desktop-break"> où la technologie sert l’humain, l’émotion et les projets qui comptent.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#fondations">Découvrir le design system <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="philosophy-link" href="#principes"><span class="play" aria-hidden="true">▶</span><span>Lire la philosophie<br><small>Clarté · émotion · cohérence</small></span></a>
+        </div>
+      </div>
+      <figure class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Un couple célèbre son mariage dans un jardin baigné de lumière." width="1200" height="1100" fetchpriority="high">
+        <figcaption><span class="image-caption">Des expériences<br>digitales qui<br>rapprochent<br>les gens</span><span class="editorial-label">Émotions<br>Projets<br>Technologie<br>Humain <span aria-hidden="true">●</span></span></figcaption>
+      </figure>
+    </section>
+
+    <section class="wrap reference-section" id="fondations" aria-labelledby="foundations-title">
+      <div class="section-heading"><h2 id="foundations-title"><span>01.</span> Fondations</h2><p>Les bases d’une expérience cohérente et durable</p></div>
+      <div class="foundations-grid">
+        <article class="foundation colors">
+          <h3>Couleurs</h3>
+          <div class="swatches">
+            <div><span class="swatch deep"></span><strong>Vert profond</strong><code>#1F3F28</code><small>Principal</small></div>
+            <div><span class="swatch accent"></span><strong>Vert accent</strong><code>#A3D65C</code><small>Accent</small></div>
+            <div><span class="swatch sand"></span><strong>Sable</strong><code>#F6F7F5</code><small>Fond</small></div>
+            <div><span class="swatch gray"></span><strong>Gris texte</strong><code>#485563</code><small>Secondaire</small></div>
+            <div><span class="swatch light"></span><strong>Gris clair</strong><code>#E5E7EB</code><small>Bordures</small></div>
+          </div>
+          <p class="rule">Texte sombre sur l’accent. Jamais de texte vert accent sur blanc.</p>
+        </article>
+        <article class="foundation typography">
+          <h3>Typographie</h3><div class="type-preview"><span>Aa</span><p><strong>Inter</strong><br>Moderne, lisible, élégante.</p></div>
+          <p class="type-h1">Headline 1 — 64/72</p><p class="type-h2">Headline 2 — 48/56</p><p class="type-h3">Headline 3 — 32/40</p><p>Texte — 18/28</p><small>Texte petit — 14/20</small>
+          <p class="rule">Inter disponible librement ; alternative à Suisse. Titres fluides sur mobile.</p>
+        </article>
+        <article class="foundation spacing">
+          <h3>Espacement</h3>
+          <ul class="space-scale"><li><i style="--step:4"></i><span>4 px</span><small>XS</small></li><li><i style="--step:8"></i><span>8 px</span><small>S</small></li><li><i style="--step:16"></i><span>16 px</span><small>M</small></li><li><i style="--step:24"></i><span>24 px</span><small>L</small></li><li><i style="--step:48"></i><span>48 px</span><small>XL</small></li></ul>
+          <p class="rule">Grille de 4 px. Marges de page fluides, de 20 à 64 px.</p>
+        </article>
+        <article class="foundation pictograms">
+          <h3>Icônes &amp; pictos</h3>
+          <div class="icon-grid">
+            <svg class="icon" role="img" aria-label="Cœur"><use href="#heart"/></svg><svg class="icon" role="img" aria-label="Calendrier"><use href="#calendar"/></svg><svg class="icon" role="img" aria-label="Musique"><use href="#music"/></svg><svg class="icon" role="img" aria-label="Lieu"><use href="#pin"/></svg><svg class="icon" role="img" aria-label="Email"><use href="#mail"/></svg>
+            <svg class="icon" role="img" aria-label="Éclat"><use href="#spark"/></svg><svg class="icon" role="img" aria-label="Invités"><use href="#people"/></svg><svg class="icon" role="img" aria-label="Photographie"><use href="#camera"/></svg><svg class="icon" role="img" aria-label="Conversation"><use href="#chat"/></svg><svg class="icon" role="img" aria-label="Flèche"><use href="#arrow"/></svg>
+          </div>
+          <p class="rule">Contours 1,5 px, extrémités arrondies, grille 24 px. Les actions gardent un libellé accessible.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap reference-section" id="composants" aria-labelledby="components-title">
+      <div class="section-heading"><h2 id="components-title"><span>02.</span> Composants</h2><p>Des éléments prêts à l’emploi</p></div>
+      <div class="components-grid">
+        <article class="component"><h3>Boutons</h3><div class="button-examples">
+          <a class="button primary" href="#assistant">Bouton principal <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="button secondary" href="#integration">Bouton secondaire</a>
+          <a class="text-link" href="#ressources">Lien texte <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+        </div><p class="rule">Une action principale par bloc. Hauteur minimale : 44 px.</p></article>
+        <article class="component"><h3>Chips / Tags</h3><div class="chips">
+          <button class="chip selected" type="button" aria-pressed="true" data-toggle>Mariage</button><button class="chip" type="button" aria-pressed="false" data-toggle>Saxophone</button>
+          <button class="chip" type="button" aria-pressed="false" data-toggle>DJ</button><button class="chip" type="button" aria-pressed="false" data-toggle>Cérémonie</button><button class="chip" type="button" aria-pressed="false" data-toggle>Soirée</button><button class="chip" type="button" aria-pressed="false" data-toggle>Live</button><button class="chip" type="button" aria-pressed="false" data-toggle>Premium</button>
+        </div><p class="rule">Cliquer pour comparer les états. Sélection signalée par couleur et coche.</p></article>
+        <article class="component"><h3>Champs de formulaire</h3>
+          <label for="name">Nom complet</label><input class="field" id="name" autocomplete="name" placeholder="Votre nom">
+          <label for="email">Email</label><input class="field focus-example" id="email" type="email" autocomplete="email" placeholder="bonjour@exemple.com" aria-describedby="focus-note">
+          <p class="rule" id="focus-note">Aperçu focus : bordure verte et halo léger. Le focus clavier reste visible sur tous les champs.</p>
+        </article>
+        <article class="component"><h3>Carte / Card</h3>
+          <a class="service-card" href="#application-pictos">
+            <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Un musicien joue du saxophone en live." width="600" height="300" loading="lazy">
+            <div><h4>Prestation saxophone</h4><p>Une ambiance élégante<br>pour votre mariage.</p><span class="round-arrow"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></div>
+          </a><p class="rule">Image 2:1, rayon 12 px, une seule cible de navigation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="conversation-section" id="assistant" aria-labelledby="conversation-title">
+      <div class="wrap section-heading"><h2 id="conversation-title"><span>03.</span> Bloc conversation</h2><p>Un exemple concret d’expérience utilisateur</p></div>
+      <div class="conversation-scene">
+        <img class="scene-image" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&amp;fit=crop&amp;w=2000&amp;q=85" alt="Une réception de mariage fleurie, dans une ambiance chaleureuse." width="2000" height="1000" loading="lazy">
+        <div class="wrap conversation-layout">
+          <div class="conversation-copy"><p class="eyebrow dot">Assistant de projet</p><h3>Discutez de votre<br>projet de mariage.</h3><p>Un assistant pour vous aider à imaginer la bonne formule, poser vos questions et avancer sereinement.</p><small>Démonstration locale · aucun envoi · aucune IA connectée</small></div>
+          <div class="assistant-panel">
+            <div class="assistant-header"><span class="assistant-brand"><svg class="flower" aria-hidden="true"><use href="#flower"/></svg>LE MONDE AIME<sup>®</sup></span><span class="assistant-status dot">Assistant mariage</span></div>
+            <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions" aria-label="Messages de démonstration" tabindex="0">
+              <div class="bubble"><strong>Bonjour ! 👋</strong><p>Je suis votre assistant pour imaginer ensemble une ambiance musicale sur mesure.</p><p>Dites-moi en quelques mots votre projet.</p></div>
+            </div>
+            <div class="suggestions" aria-label="Suggestions de message"><button class="chip" type="button" data-suggest="Je prépare une cérémonie.">Cérémonie</button><button class="chip" type="button" data-suggest="Je cherche une ambiance pour le vin d’honneur.">Vin d’honneur</button><button class="chip" type="button" data-suggest="Je prépare une soirée de mariage.">Soirée</button><button class="chip" type="button" data-suggest="Je souhaite parler du lieu de réception.">Lieux</button></div>
+            <form class="chat-form" id="demo-form">
+              <label class="sr-only" for="demo-input">Votre message de démonstration</label>
+              <input id="demo-input" placeholder="Écrivez votre message…" maxlength="500" required aria-describedby="demo-status">
+              <button class="send" type="submit" aria-label="Afficher le message localement"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+            </form>
+            <p class="demo-status" id="demo-status" role="status">Prototype visuel, sans réservation ni collecte de données.</p>
+          </div>
+        </div>
+      </div>
+      <p class="wrap conversation-rule">Référence conversationnelle : panneau de 520 px maximum, journal défilant, suggestions puis saisie. Sur mobile, le panneau passe sous le texte ; aucun contenu ne déborde.</p>
+    </section>
+
+    <section class="wrap reference-section" id="integration" aria-labelledby="integration-title">
+      <div class="section-heading"><h2 id="integration-title"><span>04.</span> Application au site Matt Mez Sax</h2><p>Comment ce design system guide la future refonte</p></div>
+      <div class="application-grid">
+        <div class="application-intro"><h3>Une base solide pour<br>le site Matt Mez Sax</h3><p>Une expérience cohérente, élégante et efficace sur l’ensemble du site : landing, contenu, formulaires, pictogrammes et plus encore.</p></div>
+        <a class="application-card" href="#application-landing"><svg class="icon" aria-hidden="true"><use href="#spark"/></svg><h3>Landing page</h3><p>Un hero percutant, une identité claire et un parcours orienté émotion.</p><span class="round-arrow"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a>
+        <a class="application-card" href="#application-editor"><svg class="icon" aria-hidden="true"><use href="#edit"/></svg><h3>Landing editor</h3><p>Des composants réutilisables pour créer des pages sur mesure.</p><span class="round-arrow"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a>
+        <a class="application-card" href="#application-pictos"><svg class="icon" aria-hidden="true"><use href="#music"/></svg><h3>Pictogrammes</h3><p>Une iconographie cohérente pour les prestations, les lieux et les ambiances.</p><span class="round-arrow"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a>
+        <a class="application-card" href="#application-ui"><svg class="icon" aria-hidden="true"><use href="#phone"/></svg><h3>Cohérence UI</h3><p>Même style, mêmes composants, sur toutes les pages et tous les écrans.</p><span class="round-arrow"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a>
+      </div>
+      <div class="reference-notes" id="ressources">
+        <details id="principes"><summary>Principes &amp; consignes pour Arena</summary><div class="details-content">
+          <p>Cette page et la maquette validée sont la référence visuelle actuelle. Le fichier <a href="index%209.html">index 9.html</a> reste une archive intacte ; les anciens tokens du laboratoire ne sont pas ceux de cette direction.</p>
+          <ul><li>Blanc dominant, vert profond pour les actions, accent réservé aux sélections et repères ; gris texte pour les contenus secondaires.</li><li>Inter, hiérarchie 64/72 · 48/56 · 32/40, grille de 4 px, rayons 12 px pour les cartes et 24 px pour l’assistant. Boutons et chips arrondis.</li><li>Préserver les états hover, sélection, focus et disabled ; bordures douces, cibles de 44 px et libellés explicites.</li><li>Proposer un aperçu isolé avant intégration : desktop, mobile, clavier et contrastes. Pas de publication, de modification backend ou de données.</li></ul>
+          <button class="button secondary" type="button" disabled>État désactivé — indisponible</button>
+        </div></details>
+        <details id="audit"><summary>Audit Matt Mez Sax — sources et limites</summary><div class="details-content">
+          <p><strong>Audit direct non réalisable dans cette session :</strong> le dépôt <code>mattmezstitchlab/matt-mez-admin</code> renvoie 404 via GitHub et aucune copie locale n’est disponible. Aucun inventaire actuel des composants ne peut être confirmé.</p>
+          <p>La documentation déjà présente dans ce dépôt, <code>DESIGN_SYSTEM.md</code>, rapporte un hero vidéo avec assistant public dans <code>src/components/landing/Hero.jsx</code>, et des thèmes sombre / <code>.atelier-clair</code> avec Space Grotesk et Inter dans <code>src/index.css</code>. Ce sont des références antérieures, non revérifiées ici.</p>
+          <p>À vérifier dès qu’un accès en lecture sera fourni : bibliothèque de pictogrammes, boutons, champs, cartes, sections récurrentes, suggestions du chat et éventuel éditeur de landing. Les composants montrés ici sont des propositions, pas un inventaire prétendument extrait du site.</p>
+        </div></details>
+        <details id="application-landing"><summary>Landing page — intégration progressive</summary><div class="details-content"><p>Tester d’abord un hero et une carte de prestation dans un aperçu séparé. Conserver la vidéo, les parcours et la logique conversationnelle existants ; adapter uniquement leur enveloppe visuelle après validation.</p></div></details>
+        <details id="application-editor"><summary>Landing editor — contrat des blocs à vérifier</summary><div class="details-content"><p>Vérifier l’existence et le fonctionnement de l’éditeur avant de proposer des blocs hero, prestation, témoignage et conversation. Réutiliser les tokens et états de cette page sans changer la structure des données ni les règles de publication.</p></div></details>
+        <details id="application-pictos"><summary>Pictogrammes — inventaire avant remplacement</summary><div class="details-content"><p>Comparer les icônes existantes aux propositions cœur, musique, calendrier, lieu et invités. Conserver les significations métier ; harmoniser les contours et tailles, avec un libellé pour chaque action.</p></div></details>
+        <details id="application-ui"><summary>Cohérence UI — critères de validation</summary><div class="details-content"><p>Porter progressivement boutons, tags, champs et cartes dans un périmètre Landing dédié, jamais en remplaçant globalement les variables de l’administration. Vérifier saisie, erreurs, état désactivé, focus, débordement du chat et responsive avant chaque adoption.</p></div></details>
+        <details><summary>Logo, photographies &amp; périmètre</summary><div class="details-content"><p>Le symbole floral plein reprend le dessin SVG <code>#i-flower</code> de l’archive, avec le mot-symbole sur deux lignes selon la maquette. La typographie du mot-symbole est une reconstruction, pas un fichier vectoriel officiel fourni.</p><p>Les photographies Unsplash illustrent les proportions, avec une réception distincte derrière l’assistant. Elles ne reproduisent pas exactement les visuels de la maquette. Vérifier les droits et choisir les médias définitifs avant exploitation. Les polices et images nécessitent Internet ; aucun message saisi n’est transmis.</p><p>Travail limité au design system : aucune modification de Matt Mez Sax, de Base44, du backend ou des données ; aucun déploiement demandé.</p></div></details>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner">
+    <a class="brand" href="#accueil" aria-label="LE MONDE AIME — retour en haut"><svg class="flower" aria-hidden="true"><use href="#flower"/></svg><span>LE MONDE<br>AIME<sup>®</sup></span></a>
+    <p>De nouveaux horizons, ensemble.<br><small>Design · Émotion · Technologie · Humain</small></p>
+    <nav aria-label="Navigation de pied de page"><a href="#principes">À propos</a><a href="#audit">Audit</a><a href="#ressources">Ressources</a></nav>
+    <a class="button primary" href="#integration">Utiliser ce système <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+  </div></footer>
+</body>
+</html>
