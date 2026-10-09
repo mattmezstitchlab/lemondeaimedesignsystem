@@ -46,5 +46,14 @@ function revealLinkedDetails() {
   }
 }
 
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    const target = document.getElementById(link.hash.slice(1));
+    if (target instanceof HTMLDetailsElement) {
+      target.open = true;
+    }
+  });
+});
+
 window.addEventListener("hashchange", revealLinkedDetails);
 revealLinkedDetails();
